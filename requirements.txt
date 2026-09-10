@@ -1,0 +1,6 @@
+tree-sitter>=0.23.0
+tree-sitter-cpp>=0.23.0
+pygdbmi>=0.11.0
+pywebview>=5.0
+pytest>=8.0
+pyinstaller>=6.0
