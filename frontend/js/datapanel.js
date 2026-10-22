@@ -67,7 +67,8 @@ const DataPanel = (() => {
 
   // ---- render principal ----
 
-  function render(steps, cursor) {
+  // frozen: dados de um quadro escolhido na trilha, sem destaque de mudança.
+  function render(steps, cursor, frozen = false) {
     anims.forEach((id) => cancelAnimationFrame(id));
     anims.clear();
     const el = host();
@@ -76,7 +77,7 @@ const DataPanel = (() => {
     document.getElementById("frame-label").textContent = step ? `quadro: ${step.func}` : "";
     if (!step) return;
     // Comparar só com o mesmo quadro: em outro quadro "n" é outra variável.
-    const prev = cursor > 0 && steps[cursor - 1].frame_id === step.frame_id ? steps[cursor - 1] : null;
+    const prev = !frozen && cursor > 0 && steps[cursor - 1].frame_id === step.frame_id ? steps[cursor - 1] : null;
     const structures = Object.entries(step.structures || {}).filter(([name]) => !hidden.has(name));
     const indexVars = new Set();
     structures.forEach(([, st]) => (st.indices || []).forEach((ix) => /^\w+$/.test(ix.expr) && indexVars.add(ix.expr)));
@@ -469,24 +470,5 @@ const DataPanel = (() => {
     return row;
   }
 
-  function renderRecursion(steps, cursor) {
-    const el = host();
-    const nodes = [];
-    const edges = [];
-    const byId = {};
-    steps.slice(0, cursor + 1).forEach((s) => {
-      if (s.event === "call" || (s.call_stack && s.call_stack.length && !byId[s.frame_id])) {
-        const node = { addr: String(s.frame_id), type: s.func, fields: { ...(s.args || {}) } };
-        nodes.push(node);
-        byId[s.frame_id] = node;
-        const parent = (s.call_stack || []).filter((f) => f.frame_id !== s.frame_id).slice(-1)[0];
-        if (parent) edges.push({ from: String(parent.frame_id), field: `call ${edges.length + 1}`, to: String(s.frame_id) });
-      }
-    });
-    el.innerHTML = "";
-    const st = { kind: "tree", nodes, edges, root: nodes.length ? nodes[0].addr : null };
-    el.appendChild(graphBlock({ members: [["árvore de chamadas", st]] }, steps, 0, "rec"));
-  }
-
-  return { render, onWatch, toggleHidden, renderRecursion, setArrayMode };
+  return { render, onWatch, toggleHidden, setArrayMode };
 })();

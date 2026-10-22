@@ -389,6 +389,20 @@ class _Session:
             variables = _list_as_dicts(payload.get("variables"))
         return variables, args
 
+    def args_by_level(self) -> dict[int, dict[str, Any]]:
+        """Arguments of every frame in one call, for the call trail (main › fib(5) › …)."""
+        msg, payload = _result(_write(self.gdb, "-stack-list-arguments --simple-values"))
+        out: dict[int, dict[str, Any]] = {}
+        if msg == "done" and isinstance(payload, dict):
+            for frame in _list_as_dicts(payload.get("stack-args")):
+                level = _as_int(str(frame.get("level"))) or 0
+                out[level] = {
+                    a["name"]: _coerce_scalar(a.get("value")) if "value" in a else None
+                    for a in _list_as_dicts(frame.get("args"))
+                    if a.get("name")
+                }
+        return out
+
     def _ptype_fields(self, type_name: str) -> list[tuple[str, str, bool]]:
         key = re.sub(r"\s+", " ", type_name).strip()
         if key in self._type_fields:
@@ -660,6 +674,7 @@ class _Session:
         depth = self.stack_depth()
         fid, event = self.assign_frame_id(depth)
         scalars, structures, args = self.capture_vars(func)
+        frame_args = self.args_by_level()
         call_stack: list[FrameInfo] = []
         for i, fr in enumerate(self.frames()):
             if not self.in_user(fr):
@@ -678,10 +693,11 @@ class _Session:
                     line=fline,
                     frame_id=frame_id,
                     level=level,
+                    args=frame_args.get(level, {}),
                 )
             )
-        # Fill args on the current frame only (cheap).
-        if call_stack:
+        # The current frame keeps the richer capture (arrays as lists).
+        if call_stack and call_stack[0].level == 0:
             call_stack[0].args = args
         return TraceStep(
             i=index,

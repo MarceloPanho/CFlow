@@ -8,6 +8,7 @@ const Player = (() => {
   let lastFunc = null;
   let shown = -1;
   let view = "stack";
+  let pinned = null; // frame_id escolhido na trilha; null = quadro atual
   const speeds = [900, 550, 320, 180, 90];
 
   const els = {};
@@ -23,6 +24,7 @@ const Player = (() => {
     els.editor = document.getElementById("editor");
     els.funcTitle = document.getElementById("func-title");
     els.stackToggle = document.getElementById("stack-view-toggle");
+    els.frameVars = document.getElementById("frame-vars");
     els.play.addEventListener("click", toggle);
     els.back.addEventListener("click", () => seek(cursor - 1));
     els.fwd.addEventListener("click", () => seek(cursor + 1));
@@ -31,7 +33,14 @@ const Player = (() => {
       const btn = ev.target.closest("button");
       if (!btn) return;
       view = btn.dataset.view;
-      els.stackToggle.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
+      els.stackToggle.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      show();
+    });
+    els.funcTitle.addEventListener("click", (ev) => {
+      const chip = ev.target.closest("button");
+      if (!chip) return;
+      const id = Number(chip.dataset.frame);
+      pinned = id === current().frame_id ? null : id;
       show();
     });
   }
@@ -43,6 +52,7 @@ const Player = (() => {
     cursor = 0;
     shown = -1;
     lastFunc = null;
+    pinned = null;
     els.scrub.max = Math.max(0, (trace.steps || []).length - 1);
     els.scrub.value = 0;
     const recursive = (trace.steps || []).some((s) => s.stack_depth > 2 || (s.call_stack || []).filter((f) => f.func === s.func).length > 1);
@@ -128,7 +138,9 @@ const Player = (() => {
     els.label.textContent = `${total ? cursor + 1 : 0} / ${total}`;
     if (!step) return;
     const cfg = cfgs[step.func];
-    els.funcTitle.textContent = step.func;
+    const stack = step.call_stack && step.call_stack.length ? step.call_stack : [{ func: step.func, frame_id: step.frame_id, args: step.args }];
+    if (pinned !== null && !stack.some((f) => f.frame_id === pinned)) pinned = null;
+    renderTrail(stack, step.frame_id);
     if (step.func !== lastFunc) {
       Flowchart.render(cfg);
       lastFunc = step.func;
@@ -137,8 +149,55 @@ const Player = (() => {
     Flowchart.update(Flowchart.flowState(cfg, trace.steps, cursor), cursor === shown + 1);
     shown = cursor;
     renderCode(step.line);
-    if (view === "tree") DataPanel.renderRecursion(trace.steps, cursor);
-    else DataPanel.render(trace.steps, cursor);
+    const tree = view === "tree" && !els.stackToggle.hidden;
+    document.getElementById("array-mode").classList.toggle("off", tree);
+    els.frameVars.hidden = !tree;
+    if (tree) {
+      CallTree.render(document.getElementById("datapanel"), trace.steps, cursor);
+      document.getElementById("frame-label").textContent = "a árvore cresce conforme as chamadas acontecem";
+      renderFrameVars(step);
+      return;
+    }
+    // Quadro escolhido na trilha: seus dados no último passo em que ele executou.
+    let at = cursor;
+    if (pinned !== null) while (at > 0 && trace.steps[at].frame_id !== pinned) at -= 1;
+    DataPanel.render(trace.steps, at, at !== cursor);
+    if (at !== cursor) document.getElementById("frame-label").textContent = `quadro: ${trace.steps[at].func} · valores de quando parou na linha ${trace.steps[at].line}`;
+  }
+
+  function renderTrail(stack, currentId) {
+    els.funcTitle.innerHTML = "";
+    // Recursão funda: main, reticências e os quatro quadros mais internos.
+    const shownFrames = stack.length > 6 ? [stack[0], null, ...stack.slice(-4)] : stack;
+    shownFrames.forEach((f, i) => {
+      if (i) els.funcTitle.appendChild(Object.assign(document.createElement("span"), { className: "sep", textContent: "›" }));
+      if (!f) {
+        els.funcTitle.appendChild(Object.assign(document.createElement("span"), { className: "sep", textContent: "…" }));
+        return;
+      }
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "crumb";
+      chip.dataset.frame = f.frame_id;
+      chip.textContent = CallTree.label(f.func, f.args);
+      if (f.frame_id === currentId) chip.classList.add("current");
+      if (f.frame_id === pinned) chip.classList.add("pinned");
+      chip.title = f.frame_id === currentId ? "quadro atual" : "mostrar os dados deste quadro";
+      els.funcTitle.appendChild(chip);
+    });
+  }
+
+  function renderFrameVars(step) {
+    const row = els.frameVars.querySelector(".scalar-row");
+    row.innerHTML = "";
+    Object.entries(step.scalars || {}).forEach(([k, v]) => {
+      const chip = document.createElement("span");
+      chip.className = "chip paper";
+      chip.innerHTML = `<span class="k"></span> `;
+      chip.querySelector(".k").textContent = k;
+      chip.append(String(v));
+      row.appendChild(chip);
+    });
   }
 
   function setEditMode(on) {

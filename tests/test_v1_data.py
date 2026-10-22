@@ -46,3 +46,10 @@ def test_graph_cycle_struct_values_share_nodes_and_form_a_cycle():
     for name in "abc":
         assert st[name].by_value and st[name].root in addrs
     assert p.root in addrs and not p.by_value
+
+
+def test_call_stack_carries_args_of_every_frame():
+    steps = _trace("fibonacci.cpp").steps
+    deepest = max(steps, key=lambda s: len(s.call_stack))
+    assert [f.func for f in deepest.call_stack] == ["main"] + ["fib"] * 5
+    assert [f.args.get("n") for f in deepest.call_stack[1:]] == [5, 4, 3, 2, 1]

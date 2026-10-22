@@ -439,7 +439,10 @@
      {
       "func": "insert",
       "line": 10,
-      "args": {},
+      "args": {
+       "root": 0,
+       "v": 5
+      },
       "frame_id": 2,
       "level": 1
      },
@@ -844,7 +847,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 3
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -895,7 +901,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 3
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -936,14 +945,20 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 3
+      },
       "frame_id": 4,
       "level": 2
      },
      {
       "func": "insert",
       "line": 10,
-      "args": {},
+      "args": {
+       "root": 0,
+       "v": 3
+      },
       "frame_id": 5,
       "level": 1
      },
@@ -993,7 +1008,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 3
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -1044,7 +1062,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 3
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -1690,7 +1711,10 @@
      {
       "func": "insert",
       "line": 15,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 8
+      },
       "frame_id": 7,
       "level": 1
      },
@@ -1741,7 +1765,10 @@
      {
       "func": "insert",
       "line": 15,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 8
+      },
       "frame_id": 7,
       "level": 1
      },
@@ -1782,14 +1809,20 @@
      {
       "func": "insert",
       "line": 15,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 8
+      },
       "frame_id": 7,
       "level": 2
      },
      {
       "func": "insert",
       "line": 10,
-      "args": {},
+      "args": {
+       "root": 0,
+       "v": 8
+      },
       "frame_id": 8,
       "level": 1
      },
@@ -1839,7 +1872,10 @@
      {
       "func": "insert",
       "line": 15,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 8
+      },
       "frame_id": 7,
       "level": 1
      },
@@ -1890,7 +1926,10 @@
      {
       "func": "insert",
       "line": 15,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 8
+      },
       "frame_id": 7,
       "level": 1
      },
@@ -2691,7 +2730,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -2761,7 +2803,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -2831,7 +2876,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -2882,14 +2930,20 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 2
      },
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040",
+       "v": 1
+      },
       "frame_id": 11,
       "level": 1
      },
@@ -2940,14 +2994,20 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 2
      },
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040",
+       "v": 1
+      },
       "frame_id": 11,
       "level": 1
      },
@@ -2988,21 +3048,30 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 3
      },
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040",
+       "v": 1
+      },
       "frame_id": 11,
       "level": 2
      },
      {
       "func": "insert",
       "line": 10,
-      "args": {},
+      "args": {
+       "root": 0,
+       "v": 1
+      },
       "frame_id": 12,
       "level": 1
      },
@@ -3052,14 +3121,20 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 2
      },
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040",
+       "v": 1
+      },
       "frame_id": 11,
       "level": 1
      },
@@ -3110,14 +3185,20 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 2
      },
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040",
+       "v": 1
+      },
       "frame_id": 11,
       "level": 1
      },
@@ -3187,7 +3268,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -3275,7 +3359,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -3362,7 +3449,10 @@
      {
       "func": "insert",
       "line": 13,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020",
+       "v": 1
+      },
       "frame_id": 10,
       "level": 1
      },
@@ -4208,7 +4298,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -4291,7 +4383,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -4357,14 +4451,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -4430,14 +4528,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -4484,21 +4586,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4545,21 +4653,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4606,21 +4720,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4686,14 +4806,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -4741,21 +4865,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4802,21 +4932,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4863,21 +4999,27 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 3
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b080"
+      },
       "frame_id": 16,
       "level": 1
      },
@@ -4943,14 +5085,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -5017,14 +5163,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -5107,7 +5257,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5155,14 +5307,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -5209,14 +5365,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -5263,14 +5423,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b040"
+      },
       "frame_id": 15,
       "level": 1
      },
@@ -5353,7 +5517,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5437,7 +5603,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5614,7 +5782,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5680,7 +5850,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5727,14 +5899,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -5781,14 +5957,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -5835,14 +6015,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -5908,7 +6092,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -5956,14 +6142,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -6010,14 +6200,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -6064,14 +6258,18 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 2
      },
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b060"
+      },
       "frame_id": 20,
       "level": 1
      },
@@ -6137,7 +6335,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },
@@ -6204,7 +6404,9 @@
      {
       "func": "walk",
       "line": 24,
-      "args": {},
+      "args": {
+       "root": "0x55555556b020"
+      },
       "frame_id": 14,
       "level": 1
      },

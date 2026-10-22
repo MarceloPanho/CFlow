@@ -39,11 +39,7 @@
         <section class="pane chalk" id="flow-pane">
           <div class="pane-head">
             <h1>fluxograma</h1>
-            <span id="func-title" class="crumb"></span>
-            <div class="view-toggle" id="stack-view-toggle" hidden>
-              <button type="button" data-view="stack" class="on">Pilha</button>
-              <button type="button" data-view="tree">Árvore de recursão</button>
-            </div>
+            <nav id="func-title" class="trail" aria-label="Pilha de chamadas"></nav>
             <div class="flow-tools">
               <button type="button" class="tool" id="zoom-out" title="Diminuir zoom">−</button>
               <span class="zoom-pct" id="zoom-pct">100%</span>
@@ -58,6 +54,10 @@
         <section class="pane data" id="data-pane">
           <div class="pane-head">
             <h1>estruturas</h1>
+            <div class="seg" id="stack-view-toggle" role="group" aria-label="Visão" hidden>
+              <button type="button" data-view="stack" aria-pressed="true">Pilha</button>
+              <button type="button" data-view="tree" aria-pressed="false">Árvore de recursão</button>
+            </div>
             <span id="frame-label" class="pane-sub"></span>
             <div class="seg" id="array-mode" role="group" aria-label="Desenho do array" hidden>
               <button type="button" data-mode="cells" aria-pressed="true">Células</button>
@@ -75,6 +75,10 @@
         </div>
         <textarea id="editor" spellcheck="false" class="editor"></textarea>
         <pre id="codeview" class="codeview" hidden></pre>
+        <section id="frame-vars" class="frame-vars" hidden>
+          <h2>variáveis do quadro</h2>
+          <div class="scalar-row"></div>
+        </section>
       </section>
     </div>
 
@@ -113,6 +117,7 @@
   <script src="js/bridge.js"></script>
   <script src="js/flowchart.js"></script>
   <script src="js/datapanel.js"></script>
+  <script src="js/calltree.js"></script>
   <script src="js/player.js"></script>
   <script src="js/app.js"></script>
 </body>

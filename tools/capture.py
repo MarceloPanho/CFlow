@@ -86,6 +86,26 @@ def load_fixtures() -> dict[str, dict]:
     return found
 
 
+def open_app(browser, fixtures: dict[str, dict], errors: list[str], **page_kwargs):
+    """Página do app com a bridge falsa, pronta para escolher um sample."""
+    page = browser.new_page(viewport=VIEWPORT, **page_kwargs)
+    page.on("console", lambda m: m.type == "error" and errors.append(f"console: {m.text}"))
+    page.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))
+    page.add_init_script(FAKE_BRIDGE % json.dumps(fixtures))
+    page.goto(INDEX.as_uri())
+    page.wait_for_function("document.querySelectorAll('#sample-select option').length > 0")
+    return page
+
+
+def run_sample(page, name: str, source: str) -> None:
+    if not page.locator("#editor").is_visible():
+        page.click("#btn-edit")
+    page.select_option("#sample-select", name)
+    page.wait_for_function("(src) => document.getElementById('editor').value === src", arg=source)
+    page.click("#btn-run")
+    page.wait_for_function("() => !document.getElementById('codeview').hidden")
+
+
 def shots(out: Path) -> int:
     from playwright.sync_api import sync_playwright
 
@@ -95,18 +115,10 @@ def shots(out: Path) -> int:
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
         # Movimento reduzido: sem tween, cada captura mostra o estado final do passo.
-        page = browser.new_page(viewport=VIEWPORT, reduced_motion="reduce")
-        page.on("console", lambda m: m.type == "error" and errors.append(f"console: {m.text}"))
-        page.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))
-        page.add_init_script(FAKE_BRIDGE % json.dumps(fixtures))
-        page.goto(INDEX.as_uri())
-        page.wait_for_function("document.querySelectorAll('#sample-select option').length > 0")
+        page = open_app(browser, fixtures, errors, reduced_motion="reduce")
         for name, fixture in fixtures.items():
             stem = Path(name).stem
-            page.select_option("#sample-select", name)
-            page.wait_for_function("(src) => document.getElementById('editor').value === src", arg=fixture["source"])
-            page.click("#btn-run")
-            page.wait_for_function("() => !document.getElementById('codeview').hidden")
+            run_sample(page, name, fixture["source"])
             total = len(fixture["trace"]["steps"])
             for frac in FRACTIONS:
                 idx = round(frac * (total - 1))
@@ -118,7 +130,6 @@ def shots(out: Path) -> int:
                 path = out / f"{stem}-{idx:04d}.png"
                 page.screenshot(path=str(path))
                 print(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path)
-            page.click("#btn-edit")
         browser.close()
     for err in errors:
         print(err, file=sys.stderr)

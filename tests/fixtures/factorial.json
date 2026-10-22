@@ -196,7 +196,9 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 1
      },
@@ -236,7 +238,9 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 1
      },
@@ -276,14 +280,18 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 1
      },
@@ -323,14 +331,18 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 1
      },
@@ -370,21 +382,27 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 2
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -424,21 +442,27 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 2
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -478,21 +502,27 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 2
+      },
       "frame_id": 4,
       "level": 1
      },
@@ -532,14 +562,18 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 1
      },
@@ -580,14 +614,18 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 3
+      },
       "frame_id": 3,
       "level": 1
      },
@@ -627,7 +665,9 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 1
      },
@@ -668,7 +708,9 @@
      {
       "func": "factorial",
       "line": 5,
-      "args": {},
+      "args": {
+       "n": 4
+      },
       "frame_id": 2,
       "level": 1
      },
