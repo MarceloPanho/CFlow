@@ -520,7 +520,7 @@ select { min-width: 13rem; }
 .invalid-target { color: var(--error); border: 1px dashed var(--error); border-radius: 3px; padding: 2px 8px; background: rgba(227, 154, 136, 0.08); }
 
 /* Árvore de recursão */
-.calltree { display: flex; gap: 24px; align-items: flex-start; color: var(--chalk-dim); font-size: 13px; }
+.calltree { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; color: var(--chalk-dim); font-size: 13px; }
 .ct-canvas { flex: none; overflow: visible; }
 .ct-node rect { fill: var(--node); stroke: var(--trail); stroke-width: 1.2; }
 .ct-node.waiting rect { fill: transparent; stroke: var(--chalk-dim); stroke-dasharray: 4 3; }
