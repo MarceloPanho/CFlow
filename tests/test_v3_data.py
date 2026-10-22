@@ -35,6 +35,7 @@ def test_null_and_invalid_pointers_are_structures():
 
 
 def test_empty_std_container_has_no_values():
-    steps = [s for s in _trace("stack_demo.cpp").steps if "st" in s.structures]
+    # Antes da linha 4 (std::stack<int> st;) a memória ainda não foi construída: é lixo.
+    steps = [s for s in _trace("stack_demo.cpp").steps if "st" in s.structures and s.line > 4]
     assert all(isinstance(v, int) for s in steps for v in s.structures["st"].values)
-    assert [len(s.structures["st"].values) for s in steps][:2] == [0, 0]
+    assert [s.structures["st"].values for s in steps][:2] == [[], [1]]
