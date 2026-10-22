@@ -11,7 +11,7 @@ from typing import Any
 
 from tree_sitter import Node, Tree
 
-from engine.parser import list_functions, node_lines, node_text, parse_cpp
+from engine.parser import _declarator_identifier, list_functions, node_lines, node_text, parse_cpp
 
 
 Exit = tuple[str, str | None]  # (from_id, edge_label)
@@ -55,12 +55,8 @@ class CfgBuilder:
     def _text(self, node: Node) -> str:
         return node_text(self.raw, node)
 
-    def _label(self, text: str, limit: int = 42) -> str:
-        compact = " ".join(text.split())
-        compact = compact.strip().rstrip(";")
-        if len(compact) > limit:
-            return compact[: limit - 1] + "…"
-        return compact
+    def _label(self, text: str) -> str:
+        return " ".join(text.split()).strip().rstrip(";")
 
     def add(self, kind: str, node: Node | list[Node], label: str, prefix: str) -> str:
         if isinstance(node, list):
@@ -71,13 +67,16 @@ class CfgBuilder:
         else:
             lines = node_lines(node)
         nid = self._id(prefix)
-        self.nodes.append({"id": nid, "kind": kind, "lines": lines, "label": self._label(label)})
+        label = "\n".join(self._label(part) for part in label.split("\n"))
+        self.nodes.append({"id": nid, "kind": kind, "lines": lines, "label": label})
         return nid
 
-    def edge(self, frm: str, to: str, label: str | None = None) -> None:
+    def edge(self, frm: str, to: str, label: str | None = None, back: bool = False) -> None:
         payload: dict[str, Any] = {"from": frm, "to": to}
         if label:
             payload["label"] = label
+        if back:
+            payload["back"] = True  # loop edge returning to its header
         self.edges.append(payload)
 
     def wire(self, incoming: list[Exit], target: str) -> None:
@@ -154,7 +153,7 @@ class CfgBuilder:
             if buf:
                 groups.append(("block", buf))
             for kind, group in groups:
-                label = "; ".join(self._text(x).strip().rstrip(";") for x in group)
+                label = "\n".join(self._text(x).strip().rstrip(";") for x in group)
                 nid = self.add(kind, group, label, "c" if kind == "call" else "b")
                 self.wire(exits, nid)
                 exits = [(nid, None)]
@@ -238,7 +237,7 @@ class CfgBuilder:
         body_exits = self.seq(self._stmt_list(body), [(d, "true")])
         self._loops.pop()
         for frm, label in body_exits:
-            self.edge(frm, d, label)
+            self.edge(frm, d, label, back=True)
         exits: list[Exit] = [(d, "false")]
         for brk in loop.breaks:
             exits.append((brk, None))
@@ -265,11 +264,11 @@ class CfgBuilder:
         if update is not None:
             u = self.add("block", update, self._text(update), "b")
             self.wire(body_exits, u)
-            self.edge(u, d)
+            self.edge(u, d, back=True)
             loop.header = d
         else:
             for frm, label in body_exits:
-                self.edge(frm, d, label)
+                self.edge(frm, d, label, back=True)
         exits: list[Exit] = [(d, "false")]
         for brk in loop.breaks:
             exits.append((brk, None))
@@ -281,13 +280,13 @@ class CfgBuilder:
         d = self.add("decision", cond, self._text(cond).strip("()"), "d")
         loop = _Loop(d)
         self._loops.append(loop)
+        first = len(self.nodes)
         body_exits = self.seq(self._stmt_list(body), incoming)
         self._loops.pop()
         self.wire(body_exits, d)
-        self.edge(d, body_exits[0][0] if body_exits else d, "true")
-        # true should go back to body start — we need the first body node.
-        # The edge above is a fallback; find nodes created in body via first incoming wire.
-        # Simpler: create a dummy entry for body by processing with a synthetic start.
+        # true goes back to the first node the body created (d itself if the body is empty).
+        body_start = self.nodes[first]["id"] if len(self.nodes) > first and self.nodes[first]["id"] != d else d
+        self.edge(d, body_start, "true", back=True)
         exits: list[Exit] = [(d, "false")]
         for brk in loop.breaks:
             exits.append((brk, None))
@@ -373,12 +372,30 @@ class CfgBuilder:
         nid = self.add("block", stmt, "continue", "k")
         self.wire(incoming, nid)
         if self._loops:
-            self.edge(nid, self._loops[-1].header)
+            self.edge(nid, self._loops[-1].header, back=True)
         return []
+
+    def _signature(self, func: Node, name: str) -> str:
+        decl = func.child_by_field_name("declarator")
+        params = self._contains_type(decl, "parameter_list") if decl is not None else None
+        names = [
+            _declarator_identifier(p, self.source) or ""
+            for p in (params.named_children if params is not None else [])
+            if p.type in ("parameter_declaration", "optional_parameter_declaration")
+        ]
+        return f"{name}({', '.join(n for n in names if n)})"
 
     def build(self, func: Node, name: str) -> Cfg:
         body = func.child_by_field_name("body")
-        self.seq(self._stmt_list(body), [])
+        start = self._id("s")
+        first_line = func.start_point[0] + 1
+        self.nodes.append({"id": start, "kind": "start", "lines": [first_line], "label": self._signature(func, name)})
+        exits = self.seq(self._stmt_list(body), [(start, None)])
+        if exits:
+            # Falling off the end (void functions): the closing brace is the implicit return.
+            end = self._id("r")
+            self.nodes.append({"id": end, "kind": "return", "lines": [func.end_point[0] + 1], "label": "return"})
+            self.wire(exits, end)
         return Cfg(function=name, nodes=self.nodes, edges=self.edges)
 
 

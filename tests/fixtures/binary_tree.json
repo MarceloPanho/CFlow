@@ -3,14 +3,44 @@
  "cfgs": {
   "Node": {
    "function": "Node",
-   "nodes": [],
-   "edges": []
+   "nodes": [
+    {
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      5
+     ],
+     "label": "Node(v)"
+    },
+    {
+     "id": "r2",
+     "kind": "return",
+     "lines": [
+      5
+     ],
+     "label": "return"
+    }
+   ],
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   },
   "insert": {
    "function": "insert",
    "nodes": [
     {
-     "id": "d1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      8
+     ],
+     "label": "insert(root, v)"
+    },
+    {
+     "id": "d2",
      "kind": "decision",
      "lines": [
       9
@@ -18,7 +48,7 @@
      "label": "root == nullptr"
     },
     {
-     "id": "r2",
+     "id": "r3",
      "kind": "return",
      "lines": [
       10
@@ -26,7 +56,7 @@
      "label": "return new Node(v)"
     },
     {
-     "id": "d3",
+     "id": "d4",
      "kind": "decision",
      "lines": [
       12
@@ -34,7 +64,7 @@
      "label": "v < root->val"
     },
     {
-     "id": "c4",
+     "id": "c5",
      "kind": "call",
      "lines": [
       13
@@ -42,7 +72,7 @@
      "label": "root->left = insert(root->left, v)"
     },
     {
-     "id": "c5",
+     "id": "c6",
      "kind": "call",
      "lines": [
       15
@@ -50,7 +80,7 @@
      "label": "root->right = insert(root->right, v)"
     },
     {
-     "id": "r6",
+     "id": "r7",
      "kind": "return",
      "lines": [
       17
@@ -60,32 +90,36 @@
    ],
    "edges": [
     {
-     "from": "d1",
-     "to": "r2",
+     "from": "s1",
+     "to": "d2"
+    },
+    {
+     "from": "d2",
+     "to": "r3",
      "label": "true"
     },
     {
-     "from": "d1",
-     "to": "d3",
+     "from": "d2",
+     "to": "d4",
      "label": "false"
     },
     {
-     "from": "d3",
-     "to": "c4",
-     "label": "true"
-    },
-    {
-     "from": "d3",
+     "from": "d4",
      "to": "c5",
-     "label": "false"
+     "label": "true"
     },
     {
-     "from": "c4",
-     "to": "r6"
+     "from": "d4",
+     "to": "c6",
+     "label": "false"
     },
     {
      "from": "c5",
-     "to": "r6"
+     "to": "r7"
+    },
+    {
+     "from": "c6",
+     "to": "r7"
     }
    ]
   },
@@ -93,7 +127,15 @@
    "function": "walk",
    "nodes": [
     {
-     "id": "d1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      20
+     ],
+     "label": "walk(root)"
+    },
+    {
+     "id": "d2",
      "kind": "decision",
      "lines": [
       21
@@ -101,7 +143,7 @@
      "label": "root == nullptr"
     },
     {
-     "id": "r2",
+     "id": "r3",
      "kind": "return",
      "lines": [
       22
@@ -109,23 +151,27 @@
      "label": "return 0"
     },
     {
-     "id": "r3",
+     "id": "r4",
      "kind": "return",
      "lines": [
       24
      ],
-     "label": "return root->val + walk(root->left) + wal…"
+     "label": "return root->val + walk(root->left) + walk(root->right)"
     }
    ],
    "edges": [
     {
-     "from": "d1",
-     "to": "r2",
+     "from": "s1",
+     "to": "d2"
+    },
+    {
+     "from": "d2",
+     "to": "r3",
      "label": "true"
     },
     {
-     "from": "d1",
-     "to": "r3",
+     "from": "d2",
+     "to": "r4",
      "label": "false"
     }
    ]
@@ -134,7 +180,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      27
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       28
@@ -142,7 +196,7 @@
      "label": "Node* root = nullptr"
     },
     {
-     "id": "c2",
+     "id": "c3",
      "kind": "call",
      "lines": [
       29
@@ -150,7 +204,7 @@
      "label": "root = insert(root, 5)"
     },
     {
-     "id": "c3",
+     "id": "c4",
      "kind": "call",
      "lines": [
       30
@@ -158,7 +212,7 @@
      "label": "root = insert(root, 3)"
     },
     {
-     "id": "c4",
+     "id": "c5",
      "kind": "call",
      "lines": [
       31
@@ -166,7 +220,7 @@
      "label": "root = insert(root, 8)"
     },
     {
-     "id": "c5",
+     "id": "c6",
      "kind": "call",
      "lines": [
       32
@@ -174,7 +228,7 @@
      "label": "root = insert(root, 1)"
     },
     {
-     "id": "r6",
+     "id": "r7",
      "kind": "return",
      "lines": [
       33
@@ -184,11 +238,11 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "c2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "c2",
+     "from": "b2",
      "to": "c3"
     },
     {
@@ -201,7 +255,11 @@
     },
     {
      "from": "c5",
-     "to": "r6"
+     "to": "c6"
+    },
+    {
+     "from": "c6",
+     "to": "r7"
     }
    ]
   }

@@ -5,7 +5,15 @@
    "function": "queue_demo",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      3
+     ],
+     "label": "queue_demo()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       4
@@ -13,7 +21,7 @@
      "label": "std::queue<int> q"
     },
     {
-     "id": "c2",
+     "id": "c3",
      "kind": "call",
      "lines": [
       5
@@ -21,7 +29,7 @@
      "label": "q.push(10)"
     },
     {
-     "id": "c3",
+     "id": "c4",
      "kind": "call",
      "lines": [
       6
@@ -29,7 +37,7 @@
      "label": "q.push(20)"
     },
     {
-     "id": "c4",
+     "id": "c5",
      "kind": "call",
      "lines": [
       7
@@ -37,7 +45,7 @@
      "label": "q.push(30)"
     },
     {
-     "id": "b5",
+     "id": "b6",
      "kind": "block",
      "lines": [
       8
@@ -45,7 +53,7 @@
      "label": "int front = q.front()"
     },
     {
-     "id": "c6",
+     "id": "c7",
      "kind": "call",
      "lines": [
       9
@@ -53,7 +61,7 @@
      "label": "q.pop()"
     },
     {
-     "id": "r7",
+     "id": "r8",
      "kind": "return",
      "lines": [
       10
@@ -63,11 +71,11 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "c2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "c2",
+     "from": "b2",
      "to": "c3"
     },
     {
@@ -76,15 +84,19 @@
     },
     {
      "from": "c4",
-     "to": "b5"
+     "to": "c5"
     },
     {
-     "from": "b5",
-     "to": "c6"
+     "from": "c5",
+     "to": "b6"
     },
     {
-     "from": "c6",
-     "to": "r7"
+     "from": "b6",
+     "to": "c7"
+    },
+    {
+     "from": "c7",
+     "to": "r8"
     }
    ]
   },
@@ -92,7 +104,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      13
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       14
@@ -100,7 +120,12 @@
      "label": "return queue_demo()"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

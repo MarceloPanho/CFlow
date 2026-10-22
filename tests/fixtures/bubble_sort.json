@@ -5,7 +5,15 @@
    "function": "bubbleSort",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      1
+     ],
+     "label": "bubbleSort(arr, n)"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       2
@@ -13,7 +21,7 @@
      "label": "int i = 0"
     },
     {
-     "id": "d2",
+     "id": "d3",
      "kind": "decision",
      "lines": [
       2
@@ -21,7 +29,7 @@
      "label": "i < n - 1"
     },
     {
-     "id": "b3",
+     "id": "b4",
      "kind": "block",
      "lines": [
       3
@@ -29,7 +37,7 @@
      "label": "int j = 0"
     },
     {
-     "id": "d4",
+     "id": "d5",
      "kind": "decision",
      "lines": [
       3
@@ -37,7 +45,7 @@
      "label": "j < n - i - 1"
     },
     {
-     "id": "d5",
+     "id": "d6",
      "kind": "decision",
      "lines": [
       4
@@ -45,17 +53,17 @@
      "label": "arr[j] > arr[j + 1]"
     },
     {
-     "id": "b6",
+     "id": "b7",
      "kind": "block",
      "lines": [
       5,
       6,
       7
      ],
-     "label": "int tmp = arr[j]; arr[j] = arr[j + 1]; ar…"
+     "label": "int tmp = arr[j]\narr[j] = arr[j + 1]\narr[j + 1] = tmp"
     },
     {
-     "id": "b7",
+     "id": "b8",
      "kind": "block",
      "lines": [
       3
@@ -63,59 +71,78 @@
      "label": "j++"
     },
     {
-     "id": "b8",
+     "id": "b9",
      "kind": "block",
      "lines": [
       2
      ],
      "label": "i++"
+    },
+    {
+     "id": "r10",
+     "kind": "return",
+     "lines": [
+      11
+     ],
+     "label": "return"
     }
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "d2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "d2",
-     "to": "b3",
+     "from": "b2",
+     "to": "d3"
+    },
+    {
+     "from": "d3",
+     "to": "b4",
      "label": "true"
     },
     {
-     "from": "b3",
-     "to": "d4"
-    },
-    {
-     "from": "d4",
-     "to": "d5",
-     "label": "true"
+     "from": "b4",
+     "to": "d5"
     },
     {
      "from": "d5",
-     "to": "b6",
+     "to": "d6",
      "label": "true"
     },
     {
-     "from": "b6",
-     "to": "b7"
-    },
-    {
-     "from": "d5",
+     "from": "d6",
      "to": "b7",
-     "label": "false"
+     "label": "true"
     },
     {
      "from": "b7",
-     "to": "d4"
+     "to": "b8"
     },
     {
-     "from": "d4",
+     "from": "d6",
      "to": "b8",
      "label": "false"
     },
     {
      "from": "b8",
-     "to": "d2"
+     "to": "d5",
+     "back": true
+    },
+    {
+     "from": "d5",
+     "to": "b9",
+     "label": "false"
+    },
+    {
+     "from": "b9",
+     "to": "d3",
+     "back": true
+    },
+    {
+     "from": "d3",
+     "to": "r10",
+     "label": "false"
     }
    ]
   },
@@ -123,7 +150,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      13
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       14
@@ -131,7 +166,7 @@
      "label": "int arr[] = {3, 1, 2, 5, 4}"
     },
     {
-     "id": "c2",
+     "id": "c3",
      "kind": "call",
      "lines": [
       15
@@ -139,7 +174,7 @@
      "label": "bubbleSort(arr, 5)"
     },
     {
-     "id": "r3",
+     "id": "r4",
      "kind": "return",
      "lines": [
       16
@@ -149,12 +184,16 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "c2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "c2",
-     "to": "r3"
+     "from": "b2",
+     "to": "c3"
+    },
+    {
+     "from": "c3",
+     "to": "r4"
     }
    ]
   }

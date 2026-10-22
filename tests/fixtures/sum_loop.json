@@ -5,7 +5,15 @@
    "function": "sum_to",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      1
+     ],
+     "label": "sum_to(n)"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       2
@@ -13,7 +21,7 @@
      "label": "int s = 0"
     },
     {
-     "id": "b2",
+     "id": "b3",
      "kind": "block",
      "lines": [
       3
@@ -21,7 +29,7 @@
      "label": "int i = 1"
     },
     {
-     "id": "d3",
+     "id": "d4",
      "kind": "decision",
      "lines": [
       3
@@ -29,7 +37,7 @@
      "label": "i <= n"
     },
     {
-     "id": "b4",
+     "id": "b5",
      "kind": "block",
      "lines": [
       4
@@ -37,7 +45,7 @@
      "label": "s += i"
     },
     {
-     "id": "b5",
+     "id": "b6",
      "kind": "block",
      "lines": [
       3
@@ -45,7 +53,7 @@
      "label": "i++"
     },
     {
-     "id": "r6",
+     "id": "r7",
      "kind": "return",
      "lines": [
       6
@@ -55,29 +63,34 @@
    ],
    "edges": [
     {
-     "from": "b1",
+     "from": "s1",
      "to": "b2"
     },
     {
      "from": "b2",
-     "to": "d3"
+     "to": "b3"
     },
     {
-     "from": "d3",
-     "to": "b4",
+     "from": "b3",
+     "to": "d4"
+    },
+    {
+     "from": "d4",
+     "to": "b5",
      "label": "true"
     },
     {
-     "from": "b4",
-     "to": "b5"
-    },
-    {
      "from": "b5",
-     "to": "d3"
+     "to": "b6"
     },
     {
-     "from": "d3",
-     "to": "r6",
+     "from": "b6",
+     "to": "d4",
+     "back": true
+    },
+    {
+     "from": "d4",
+     "to": "r7",
      "label": "false"
     }
    ]
@@ -86,7 +99,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      9
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       10
@@ -94,7 +115,12 @@
      "label": "return sum_to(5)"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

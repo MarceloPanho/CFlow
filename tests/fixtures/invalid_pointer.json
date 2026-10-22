@@ -5,7 +5,15 @@
    "function": "wild",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      1
+     ],
+     "label": "wild()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       2,
@@ -15,10 +23,10 @@
       6,
       7
      ],
-     "label": "int* p; int x = 1; p = &x; p = nullptr; i…"
+     "label": "int* p\nint x = 1\np = &x\np = nullptr\nint* q\n(void)q"
     },
     {
-     "id": "r2",
+     "id": "r3",
      "kind": "return",
      "lines": [
       8
@@ -28,8 +36,12 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "r2"
+     "from": "s1",
+     "to": "b2"
+    },
+    {
+     "from": "b2",
+     "to": "r3"
     }
    ]
   },
@@ -37,7 +49,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      11
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       12
@@ -45,7 +65,12 @@
      "label": "return wild()"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

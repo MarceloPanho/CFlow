@@ -14,6 +14,7 @@
   }
 
   async function boot() {
+    Flowchart.mount();
     Player.bind();
     DataPanel.onWatch((name, ev) => {
       watchTarget = name;

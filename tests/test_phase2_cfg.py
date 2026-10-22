@@ -74,3 +74,36 @@ def test_build_all_cfgs_includes_main():
     source = Path("samples/sum_loop.cpp").read_text(encoding="utf-8")
     all_cfgs = build_all_cfgs(source)
     assert set(all_cfgs) >= {"sum_to", "main"}
+
+
+def test_cfg_start_implicit_return_and_back_edges():
+    source = Path("samples/bubble_sort.cpp").read_text(encoding="utf-8")
+    cfg = build_cfg(source, "bubbleSort")
+    label = {n["id"]: n["label"] for n in cfg.nodes}
+    start = cfg.nodes[0]
+    assert start["kind"] == "start" and start["label"] == "bubbleSort(arr, n)"
+    assert sum(e["from"] == start["id"] for e in cfg.edges) == 1
+    # void: cair do fim leva ao return implícito na linha da chave de fechamento
+    end = next(n for n in cfg.nodes if n["kind"] == "return")
+    assert end["label"] == "return" and end["lines"] == [11]
+    back = {(label[e["from"]], label[e["to"]]) for e in cfg.edges if e.get("back")}
+    assert back == {("j++", "j < n - i - 1"), ("i++", "i < n - 1")}
+    swap = next(n for n in cfg.nodes if 5 in n["lines"])
+    assert swap["label"].split("\n") == ["int tmp = arr[j]", "arr[j] = arr[j + 1]", "arr[j + 1] = tmp"]
+
+
+def test_do_while_true_edge_returns_to_body_start():
+    source = """
+int f(int n) {
+    int s = 0;
+    do {
+        s += n;
+        n--;
+    } while (n > 0);
+    return s;
+}
+"""
+    cfg = build_cfg(source, "f")
+    label = {n["id"]: n["label"] for n in cfg.nodes}
+    loop = [(label[e["from"]], label[e["to"]]) for e in cfg.edges if e.get("back")]
+    assert loop == [("n > 0", "s += n\nn--")]

@@ -5,7 +5,15 @@
    "function": "cycle_sum",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      6
+     ],
+     "label": "cycle_sum()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       7,
@@ -20,10 +28,10 @@
       16,
       17
      ],
-     "label": "Node a; Node b; Node c; a.val = 1; b.val …"
+     "label": "Node a\nNode b\nNode c\na.val = 1\nb.val = 2\nc.val = 3\na.next = &b\nb.next = &c\nc.next = &a\nNode* p = &a\nint s = 0"
     },
     {
-     "id": "b2",
+     "id": "b3",
      "kind": "block",
      "lines": [
       18
@@ -31,7 +39,7 @@
      "label": "int i = 0"
     },
     {
-     "id": "d3",
+     "id": "d4",
      "kind": "decision",
      "lines": [
       18
@@ -39,16 +47,16 @@
      "label": "i < 3"
     },
     {
-     "id": "b4",
+     "id": "b5",
      "kind": "block",
      "lines": [
       19,
       20
      ],
-     "label": "s += p->val; p = p->next"
+     "label": "s += p->val\np = p->next"
     },
     {
-     "id": "b5",
+     "id": "b6",
      "kind": "block",
      "lines": [
       18
@@ -56,7 +64,7 @@
      "label": "i++"
     },
     {
-     "id": "r6",
+     "id": "r7",
      "kind": "return",
      "lines": [
       22
@@ -66,29 +74,34 @@
    ],
    "edges": [
     {
-     "from": "b1",
+     "from": "s1",
      "to": "b2"
     },
     {
      "from": "b2",
-     "to": "d3"
+     "to": "b3"
     },
     {
-     "from": "d3",
-     "to": "b4",
+     "from": "b3",
+     "to": "d4"
+    },
+    {
+     "from": "d4",
+     "to": "b5",
      "label": "true"
     },
     {
-     "from": "b4",
-     "to": "b5"
-    },
-    {
      "from": "b5",
-     "to": "d3"
+     "to": "b6"
     },
     {
-     "from": "d3",
-     "to": "r6",
+     "from": "b6",
+     "to": "d4",
+     "back": true
+    },
+    {
+     "from": "d4",
+     "to": "r7",
      "label": "false"
     }
    ]
@@ -97,7 +110,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      25
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       26
@@ -105,7 +126,12 @@
      "label": "return cycle_sum()"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

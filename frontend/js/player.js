@@ -5,8 +5,8 @@ const Player = (() => {
   let cursor = 0;
   let playing = false;
   let timer = null;
-  let prevNode = null;
   let lastFunc = null;
+  let shown = -1;
   let view = "stack";
   const speeds = [900, 550, 320, 180, 90];
 
@@ -41,9 +41,8 @@ const Player = (() => {
     cfgs = payload.cfgs || {};
     source = payload.source || "";
     cursor = 0;
-    prevNode = null;
+    shown = -1;
     lastFunc = null;
-    Flowchart.resetVisits();
     els.scrub.max = Math.max(0, (trace.steps || []).length - 1);
     els.scrub.value = 0;
     const recursive = (trace.steps || []).some((s) => s.stack_depth > 2 || (s.call_stack || []).filter((f) => f.func === s.func).length > 1);
@@ -131,15 +130,12 @@ const Player = (() => {
     const cfg = cfgs[step.func];
     els.funcTitle.textContent = step.func;
     if (step.func !== lastFunc) {
-      Flowchart.resetVisits();
       Flowchart.render(cfg);
       lastFunc = step.func;
-      prevNode = null;
     }
-    const node = Flowchart.nodeForLine(cfg, step.line);
-    const nid = node ? node.id : null;
-    Flowchart.highlight(nid, prevNode);
-    prevNode = nid;
+    // Token só anima num passo à frente; scrub e volta trocam o estado direto.
+    Flowchart.update(Flowchart.flowState(cfg, trace.steps, cursor), cursor === shown + 1);
+    shown = cursor;
     renderCode(step.line);
     const prev = cursor > 0 ? trace.steps[cursor - 1] : null;
     if (view === "tree") DataPanel.renderRecursion(trace.steps, cursor);

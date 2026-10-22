@@ -5,7 +5,15 @@
    "function": "forever",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      1
+     ],
+     "label": "forever()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       2
@@ -13,7 +21,7 @@
      "label": "int i = 0"
     },
     {
-     "id": "d2",
+     "id": "d3",
      "kind": "decision",
      "lines": [
       3
@@ -21,7 +29,7 @@
      "label": "true"
     },
     {
-     "id": "b3",
+     "id": "b4",
      "kind": "block",
      "lines": [
       4
@@ -29,7 +37,7 @@
      "label": "i = i + 1"
     },
     {
-     "id": "d4",
+     "id": "d5",
      "kind": "decision",
      "lines": [
       5
@@ -37,7 +45,7 @@
      "label": "i > 1000000000"
     },
     {
-     "id": "b5",
+     "id": "b6",
      "kind": "block",
      "lines": [
       6
@@ -45,7 +53,7 @@
      "label": "i = 0"
     },
     {
-     "id": "r6",
+     "id": "r7",
      "kind": "return",
      "lines": [
       9
@@ -55,35 +63,41 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "d2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "d2",
-     "to": "b3",
+     "from": "b2",
+     "to": "d3"
+    },
+    {
+     "from": "d3",
+     "to": "b4",
      "label": "true"
     },
     {
-     "from": "b3",
-     "to": "d4"
+     "from": "b4",
+     "to": "d5"
     },
     {
-     "from": "d4",
-     "to": "b5",
+     "from": "d5",
+     "to": "b6",
      "label": "true"
     },
     {
-     "from": "b5",
-     "to": "d2"
+     "from": "b6",
+     "to": "d3",
+     "back": true
     },
     {
-     "from": "d4",
-     "to": "d2",
-     "label": "false"
+     "from": "d5",
+     "to": "d3",
+     "label": "false",
+     "back": true
     },
     {
-     "from": "d2",
-     "to": "r6",
+     "from": "d3",
+     "to": "r7",
      "label": "false"
     }
    ]
@@ -92,7 +106,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      12
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       13
@@ -100,7 +122,12 @@
      "label": "return forever()"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

@@ -38,10 +38,18 @@
       <div class="col-flow" id="col-flow">
         <section class="pane chalk" id="flow-pane">
           <div class="pane-head">
-            <h1 id="func-title">fluxograma</h1>
+            <h1>fluxograma</h1>
+            <span id="func-title" class="crumb"></span>
             <div class="view-toggle" id="stack-view-toggle" hidden>
               <button type="button" data-view="stack" class="on">Pilha</button>
               <button type="button" data-view="tree">Árvore de recursão</button>
+            </div>
+            <div class="flow-tools">
+              <button type="button" class="tool" id="zoom-out" title="Diminuir zoom">−</button>
+              <span class="zoom-pct" id="zoom-pct">100%</span>
+              <button type="button" class="tool" id="zoom-in" title="Aumentar zoom">+</button>
+              <button type="button" class="tool" id="zoom-fit">Ajustar</button>
+              <button type="button" class="tool toggle" id="follow" aria-pressed="true">Seguir execução</button>
             </div>
           </div>
           <div id="flowchart" class="flowchart"></div>

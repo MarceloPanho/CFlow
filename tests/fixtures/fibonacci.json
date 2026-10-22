@@ -5,7 +5,15 @@
    "function": "fib",
    "nodes": [
     {
-     "id": "d1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      1
+     ],
+     "label": "fib(n)"
+    },
+    {
+     "id": "d2",
      "kind": "decision",
      "lines": [
       2
@@ -13,7 +21,7 @@
      "label": "n <= 1"
     },
     {
-     "id": "r2",
+     "id": "r3",
      "kind": "return",
      "lines": [
       3
@@ -21,7 +29,7 @@
      "label": "return n"
     },
     {
-     "id": "r3",
+     "id": "r4",
      "kind": "return",
      "lines": [
       5
@@ -31,13 +39,17 @@
    ],
    "edges": [
     {
-     "from": "d1",
-     "to": "r2",
+     "from": "s1",
+     "to": "d2"
+    },
+    {
+     "from": "d2",
+     "to": "r3",
      "label": "true"
     },
     {
-     "from": "d1",
-     "to": "r3",
+     "from": "d2",
+     "to": "r4",
      "label": "false"
     }
    ]
@@ -46,7 +58,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      8
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       9
@@ -54,7 +74,12 @@
      "label": "return fib(5)"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

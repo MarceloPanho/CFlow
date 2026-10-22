@@ -5,7 +5,15 @@
    "function": "stack_demo",
    "nodes": [
     {
-     "id": "b1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      3
+     ],
+     "label": "stack_demo()"
+    },
+    {
+     "id": "b2",
      "kind": "block",
      "lines": [
       4
@@ -13,7 +21,7 @@
      "label": "std::stack<int> st"
     },
     {
-     "id": "c2",
+     "id": "c3",
      "kind": "call",
      "lines": [
       5
@@ -21,7 +29,7 @@
      "label": "st.push(1)"
     },
     {
-     "id": "c3",
+     "id": "c4",
      "kind": "call",
      "lines": [
       6
@@ -29,7 +37,7 @@
      "label": "st.push(2)"
     },
     {
-     "id": "c4",
+     "id": "c5",
      "kind": "call",
      "lines": [
       7
@@ -37,7 +45,7 @@
      "label": "st.push(3)"
     },
     {
-     "id": "b5",
+     "id": "b6",
      "kind": "block",
      "lines": [
       8
@@ -45,7 +53,7 @@
      "label": "int top = st.top()"
     },
     {
-     "id": "c6",
+     "id": "c7",
      "kind": "call",
      "lines": [
       9
@@ -53,7 +61,7 @@
      "label": "st.pop()"
     },
     {
-     "id": "c7",
+     "id": "c8",
      "kind": "call",
      "lines": [
       10
@@ -61,7 +69,7 @@
      "label": "st.pop()"
     },
     {
-     "id": "r8",
+     "id": "r9",
      "kind": "return",
      "lines": [
       11
@@ -71,11 +79,11 @@
    ],
    "edges": [
     {
-     "from": "b1",
-     "to": "c2"
+     "from": "s1",
+     "to": "b2"
     },
     {
-     "from": "c2",
+     "from": "b2",
      "to": "c3"
     },
     {
@@ -84,19 +92,23 @@
     },
     {
      "from": "c4",
-     "to": "b5"
+     "to": "c5"
     },
     {
-     "from": "b5",
-     "to": "c6"
+     "from": "c5",
+     "to": "b6"
     },
     {
-     "from": "c6",
+     "from": "b6",
      "to": "c7"
     },
     {
      "from": "c7",
-     "to": "r8"
+     "to": "c8"
+    },
+    {
+     "from": "c8",
+     "to": "r9"
     }
    ]
   },
@@ -104,7 +116,15 @@
    "function": "main",
    "nodes": [
     {
-     "id": "r1",
+     "id": "s1",
+     "kind": "start",
+     "lines": [
+      14
+     ],
+     "label": "main()"
+    },
+    {
+     "id": "r2",
      "kind": "return",
      "lines": [
       15
@@ -112,7 +132,12 @@
      "label": "return stack_demo()"
     }
    ],
-   "edges": []
+   "edges": [
+    {
+     "from": "s1",
+     "to": "r2"
+    }
+   ]
   }
  },
  "trace": {

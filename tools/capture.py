@@ -41,6 +41,30 @@ FAKE_BRIDGE = """
 """
 
 
+# Checagens visuais no passo atual; cada string devolvida é uma falha.
+CHECKS = """
+() => {
+  const fails = [];
+  document.querySelectorAll("#flowchart .cfg-node").forEach((g) => {
+    const shape = g.querySelector(".shape").getBBox();
+    const text = g.querySelector(".node-label").getBBox();
+    const inside = g.dataset.kind === "decision"
+      ? text.width / shape.width + text.height / shape.height <= 1
+      : text.x >= shape.x && text.x + text.width <= shape.x + shape.width &&
+        text.y >= shape.y && text.y + text.height <= shape.y + shape.height;
+    if (!inside) fails.push(`rótulo fora da forma: ${g.querySelector("title").textContent.split("\\n")[0]}`);
+  });
+  const cur = document.querySelector("#flowchart .cfg-node.current");
+  if (cur) {
+    const a = cur.getBoundingClientRect();
+    const b = document.getElementById("flowchart").getBoundingClientRect();
+    if (a.left < b.left || a.right > b.right || a.top < b.top || a.bottom > b.bottom) fails.push("nó atual fora da vista");
+  }
+  return fails;
+}
+"""
+
+
 def record() -> None:
     from engine.app import JsApi
 
@@ -90,6 +114,7 @@ def shots(out: Path) -> int:
                     page.evaluate("(i) => Player.seek(i)", idx)
                 except Exception as exc:  # noqa: BLE001 — registra e segue para os outros passos
                     errors.append(f"{stem} passo {idx}: {str(exc).splitlines()[0]}")
+                errors.extend(f"{stem} passo {idx}: {msg}" for msg in page.evaluate(CHECKS))
                 path = out / f"{stem}-{idx:04d}.png"
                 page.screenshot(path=str(path))
                 print(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path)
