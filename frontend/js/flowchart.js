@@ -208,10 +208,15 @@ const Flowchart = (() => {
     return { el: group, badge, kind: n.kind };
   }
 
-  function render(cfg) {
+  function clear() {
     cancelAnimationFrame(tokenAnim);
+    cancelAnimationFrame(cameraAnim);
     els.host.innerHTML = "";
     graph = null;
+  }
+
+  function render(cfg) {
+    clear();
     if (!cfg || !cfg.nodes || !cfg.nodes.length) {
       els.host.textContent = "Nenhum fluxograma para esta função.";
       return;
@@ -395,7 +400,8 @@ const Flowchart = (() => {
       zoomAt(Math.exp(-ev.deltaY * 0.0015), ev.clientX - r.left, ev.clientY - r.top);
     }, { passive: false });
     els.host.addEventListener("pointerdown", (ev) => {
-      if (ev.button !== 0 || !graph) return;
+      // Só arrasta o desenho: cartões no lugar dele (erro de compilação) recebem o clique.
+      if (ev.button !== 0 || !graph || !ev.target.closest(".flow-svg")) return;
       els.host.setPointerCapture(ev.pointerId);
       els.host.classList.add("panning");
       cancelAnimationFrame(cameraAnim);
@@ -413,5 +419,5 @@ const Flowchart = (() => {
     });
   }
 
-  return { mount, render, update, flowState, fit, zoomBy, setFollow };
+  return { mount, render, clear, update, flowState, fit, zoomBy, setFollow };
 })();

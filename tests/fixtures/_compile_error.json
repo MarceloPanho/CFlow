@@ -1,0 +1,16 @@
+{
+ "ok": false,
+ "error": "Compilação falhou:\nmain.cpp: In function 'void bubbleSort(int*, int)':\nmain.cpp:6:26: error: 'ar' was not declared in this scope; did you mean 'arr'?\n    6 |                 arr[j] = ar[j + 1];\n      |                          ^~\n      |                          arr\n",
+ "compiler_output": "main.cpp: In function 'void bubbleSort(int*, int)':\nmain.cpp:6:26: error: 'ar' was not declared in this scope; did you mean 'arr'?\n    6 |                 arr[j] = ar[j + 1];\n      |                          ^~\n      |                          arr\n",
+ "diagnostics": [
+  {
+   "line": 6,
+   "col": 26,
+   "message": "'ar' não foi declarado neste escopo. Você quis dizer 'arr'?",
+   "raw": "'ar' was not declared in this scope; did you mean 'arr'?",
+   "token": "ar",
+   "suggestion": "arr"
+  }
+ ],
+ "source": "void bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int tmp = arr[j];\n                arr[j] = ar[j + 1];\n                arr[j + 1] = tmp;\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[] = {3, 1, 2, 5, 4};\n    bubbleSort(arr, 5);\n    return 0;\n}\n"
+}

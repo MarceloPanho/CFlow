@@ -29,7 +29,7 @@ FAKE_BRIDGE = """
 (() => {
   const fixtures = %s;
   const api = {
-    list_samples: async () => Object.keys(fixtures).sort(),
+    list_samples: async () => Object.keys(fixtures).filter((k) => !k.startsWith("_")).sort(),
     read_sample: async (name) => fixtures[name].source,
     toolchain_status: async () => ({ ok: true, gxx: "g++", gdb: "gdb" }),
     analyze: async (source) =>
@@ -77,6 +77,12 @@ def record() -> None:
         out = FIXTURES / f"{Path(name).stem}.json"
         out.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         print(f"{out.relative_to(ROOT)}: {len(result['trace']['steps'])} passos")
+    # Erro de compilação do protótipo ('ar' no lugar de 'arr'), para a tela de edição.
+    broken = api.read_sample("bubble_sort.cpp").replace("arr[j] = arr[j + 1];", "arr[j] = ar[j + 1];")
+    result = api.analyze(broken)
+    out = FIXTURES / "_compile_error.json"
+    out.write_text(json.dumps({**result, "source": broken}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"{out.relative_to(ROOT)}: {len(result['diagnostics'])} erro(s)")
 
 
 def load_fixtures() -> dict[str, dict]:
@@ -106,6 +112,14 @@ def run_sample(page, name: str, source: str) -> None:
     page.wait_for_function("() => !document.getElementById('codeview').hidden")
 
 
+def show_compile_error(page, source: str) -> None:
+    if not page.locator("#editor").is_visible():
+        page.click("#btn-edit")
+    page.fill("#editor", source)
+    page.click("#btn-run")
+    page.wait_for_selector(".error-card")
+
+
 def shots(out: Path) -> int:
     from playwright.sync_api import sync_playwright
 
@@ -117,6 +131,8 @@ def shots(out: Path) -> int:
         # Movimento reduzido: sem tween, cada captura mostra o estado final do passo.
         page = open_app(browser, fixtures, errors, reduced_motion="reduce")
         for name, fixture in fixtures.items():
+            if name.startswith("_"):
+                continue
             stem = Path(name).stem
             run_sample(page, name, fixture["source"])
             total = len(fixture["trace"]["steps"])
@@ -130,6 +146,11 @@ def shots(out: Path) -> int:
                 path = out / f"{stem}-{idx:04d}.png"
                 page.screenshot(path=str(path))
                 print(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path)
+        if "_compile_error.cpp" in fixtures:
+            show_compile_error(page, fixtures["_compile_error.cpp"]["source"])
+            path = out / "compile_error.png"
+            page.screenshot(path=str(path))
+            print(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path)
         browser.close()
     for err in errors:
         print(err, file=sys.stderr)

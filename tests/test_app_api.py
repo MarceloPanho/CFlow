@@ -16,3 +16,14 @@ def test_js_api_rejects_path_escape(tmp_path):
     except FileNotFoundError:
         return
     raise AssertionError("expected path escape to fail")
+
+
+def test_compile_error_returns_translated_diagnostics():
+    api = JsApi()
+    broken = api.read_sample("bubble_sort.cpp").replace("arr[j] = arr[j + 1];", "arr[j] = ar[j + 1];")
+    result = api.analyze(broken)
+    assert result["ok"] is False
+    assert result["compiler_output"].startswith("main.cpp")
+    (diag,) = result["diagnostics"]
+    assert (diag["line"], diag["col"], diag["token"], diag["suggestion"]) == (6, 26, "ar", "arr")
+    assert diag["message"] == "'ar' não foi declarado neste escopo. Você quis dizer 'arr'?"

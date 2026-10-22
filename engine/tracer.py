@@ -98,10 +98,53 @@ def compile_source(source: str, output: Path, toolchain: Toolchain | None = None
     cmd = [str(toolchain.gxx), *COMPILE_FLAGS, str(src), "-o", str(output)]
     import subprocess
 
-    proc = subprocess.run(cmd, capture_output=True, text=True)
+    # LC_ALL=C: mensagens estáveis em inglês com aspas ASCII, que parse_diagnostics entende.
+    proc = subprocess.run(cmd, capture_output=True, text=True, env={**os.environ, "LC_ALL": "C"})
     if proc.returncode != 0:
-        raise CompileError(proc.stderr or proc.stdout or "falha ao compilar")
+        raise CompileError((proc.stderr or proc.stdout or "falha ao compilar").replace(str(src), "main.cpp"))
     return output
+
+
+_DIAG = re.compile(r"^main\.cpp:(\d+):(\d+): error: (.+)$", re.M)
+_TRANSLATIONS = [
+    (r"'(.+?)' was not declared in this scope", r"'\1' não foi declarado neste escopo"),
+    (r"; did you mean '(.+?)'\?", r". Você quis dizer '\1'?"),
+    (r"expected '(.+?)' or '(.+?)' before '(.+?)'", r"faltou '\1' ou '\2' antes de '\3'"),
+    (r"expected '(.+?)' before '(.+?)'", r"faltou '\1' antes de '\2'"),
+    (r"expected '(.+?)' at end of input", r"faltou '\1' no fim do arquivo"),
+    (r"expected primary-expression before '(.+?)'", r"esperava uma expressão antes de '\1'"),
+    (r"'(.+?)' does not name a type", r"'\1' não é um tipo conhecido"),
+    (r"redeclaration of '(.+?)'", r"'\1' foi declarado de novo"),
+    (r"no matching function for call to '(.+?)'", r"nenhuma função compatível com a chamada '\1'"),
+    (r"too few arguments to function '(.+?)'", r"faltam argumentos na chamada de '\1'"),
+    (r"too many arguments to function '(.+?)'", r"argumentos demais na chamada de '\1'"),
+    (r"invalid conversion from '(.+?)' to '(.+?)'", r"conversão inválida de '\1' para '\2'"),
+    (r"cannot convert '(.+?)' to '(.+?)'", r"não dá para converter '\1' em '\2'"),
+    (r"return-statement with no value, in function returning '(.+?)'", r"return sem valor numa função que retorna '\1'"),
+]
+
+
+def parse_diagnostics(stderr: str) -> list[dict[str, Any]]:
+    """Erros do g++ com linha, coluna, mensagem em português e a sugestão "did you mean"."""
+    out: list[dict[str, Any]] = []
+    for match in _DIAG.finditer(stderr):
+        raw = match.group(3)
+        message = raw
+        for pattern, repl in _TRANSLATIONS:
+            message = re.sub(pattern, repl, message)
+        token = re.match(r"'(.+?)' was not declared", raw)
+        suggestion = re.search(r"did you mean '(.+?)'\?", raw)
+        out.append(
+            {
+                "line": int(match.group(1)),
+                "col": int(match.group(2)),
+                "message": message[:1].upper() + message[1:],
+                "raw": raw,
+                "token": token.group(1) if token else None,
+                "suggestion": suggestion.group(1) if suggestion else None,
+            }
+        )
+    return out
 
 
 def _mi_results(responses: list[dict[str, Any]]) -> list[dict[str, Any]]:

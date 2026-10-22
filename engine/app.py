@@ -15,7 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from engine.cfg import build_all_cfgs
-from engine.tracer import CompileError, ToolchainError, discover_toolchain, run_trace
+from engine.tracer import CompileError, ToolchainError, discover_toolchain, parse_diagnostics, run_trace
 
 
 def _jsonable(value: Any) -> Any:
@@ -63,7 +63,12 @@ class JsApi:
             )
             return _jsonable({"ok": True, "cfgs": cfgs, "trace": trace.to_dict(), "source": source})
         except CompileError as exc:
-            return {"ok": False, "error": f"Compilação falhou:\n{exc}"}
+            return {
+                "ok": False,
+                "error": f"Compilação falhou:\n{exc}",
+                "compiler_output": str(exc),
+                "diagnostics": parse_diagnostics(str(exc)),
+            }
         except ToolchainError as exc:
             return {"ok": False, "error": str(exc)}
         except Exception as exc:  # noqa: BLE001 — surface to the UI
