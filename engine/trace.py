@@ -30,11 +30,14 @@ class GraphNode:
     addr: str
     fields: dict[str, Any] = field(default_factory=dict)
     note: str | None = None
+    type: str | None = None  # struct/pointee type name, e.g. "Node"
 
     def to_dict(self) -> dict[str, Any]:
         out: dict[str, Any] = {"addr": self.addr, "fields": _clean(self.fields)}
         if self.note:
             out["note"] = self.note
+        if self.type:
+            out["type"] = self.type
         return out
 
 
@@ -62,11 +65,20 @@ class Structure:
     watch_as: str | None = None
     root: str | None = None  # addr the variable reaches: its own (by_value) or the pointee
     by_value: bool = False  # struct living in the variable itself, not behind a pointer
+    type: str | None = None  # declared C++ type of the variable
+    indices: list[dict[str, Any]] | None = None  # [{"expr": "j + 1", "value": 4}] from arr[...] in the source
+    note: str | None = None  # e.g. the raw address when root is "invalid"
 
     def to_dict(self) -> dict[str, Any]:
         out: dict[str, Any] = {"kind": self.kind, "layout_hint": self.layout_hint}
         if self.watch_as:
             out["watch_as"] = self.watch_as
+        if self.type:
+            out["type"] = self.type
+        if self.note:
+            out["note"] = self.note
+        if self.indices:
+            out["indices"] = _clean(self.indices)
         if self.kind in LINEAR_KINDS:
             out["values"] = _clean(self.values or [])
         if self.kind in GRAPH_KINDS:
@@ -151,7 +163,7 @@ def structure_from_dict(data: dict[str, Any]) -> Structure:
     edges = None
     if data.get("nodes") is not None:
         nodes = [
-            GraphNode(addr=n["addr"], fields=n.get("fields") or {}, note=n.get("note"))
+            GraphNode(addr=n["addr"], fields=n.get("fields") or {}, note=n.get("note"), type=n.get("type"))
             for n in data["nodes"]
         ]
     if data.get("edges") is not None:
@@ -173,6 +185,9 @@ def structure_from_dict(data: dict[str, Any]) -> Structure:
         watch_as=data.get("watch_as"),
         root=data.get("root"),
         by_value=bool(data.get("by_value")),
+        type=data.get("type"),
+        indices=data.get("indices"),
+        note=data.get("note"),
     )
 
 

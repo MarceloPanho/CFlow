@@ -13,7 +13,7 @@ from typing import Any
 
 from pygdbmi.gdbcontroller import GdbController
 
-from engine.parser import list_functions, parse_cpp
+from engine.parser import list_functions, parse_cpp, subscript_indices
 from engine.trace import (
     FrameInfo,
     GraphEdge,
@@ -324,8 +324,10 @@ class _Session:
         watch_as: dict[str, str],
         cap: int,
         step_into: bool,
+        indices: dict[str, dict[str, list[str]]] | None = None,
     ):
         self.gdb = gdb
+        self.indices = indices or {}
         self.source_path = source_path
         self.watch_as = watch_as
         self.cap = cap
@@ -432,38 +434,39 @@ class _Session:
         def pointee_type(ty: str) -> str:
             return re.sub(r"\s*\*+\s*$", "", ty).strip()
 
-        def walk_ptr(expr: str, ty: str) -> str | None:
+        def walk_ptr(expr: str, ty: str) -> tuple[str | None, str | None]:
+            """(destination, raw address): destination is an addr, None or "invalid"."""
             addr = self._addr(expr)
             if addr is None:
-                return None
+                return None, None
             if not self._readable(addr):
-                return "invalid"
+                return "invalid", addr
             if addr in seen:
-                return addr
+                return addr, addr
             seen.add(addr)
             struct_ty = pointee_type(ty)
             fields_meta = self._ptype_fields(struct_ty)
             if not fields_meta:
                 # opaque / primitive pointer
                 val = _coerce_scalar(_eval(self.gdb, f"*({expr})"))
-                nodes.append(GraphNode(addr=addr, fields={"value": val}))
-                return addr
+                nodes.append(GraphNode(addr=addr, fields={"value": val}, type=struct_ty or None))
+                return addr, addr
             field_vals: dict[str, Any] = {}
             deref = f"(*({expr}))"
             for fname, fty, is_ptr in fields_meta:
                 access = f"({deref}).{fname}"
                 if is_ptr:
-                    dest = walk_ptr(access, fty)
-                    edges.append(GraphEdge(frm=addr, field=fname, to=dest))
+                    dest, raw = walk_ptr(access, fty)
+                    edges.append(GraphEdge(frm=addr, field=fname, to=dest, note=raw if dest == "invalid" else None))
                 else:
                     field_vals[fname] = _coerce_scalar(_eval(self.gdb, access))
-            nodes.append(GraphNode(addr=addr, fields=field_vals))
-            return addr
+            nodes.append(GraphNode(addr=addr, fields=field_vals, type=struct_ty))
+            return addr, addr
 
         kind = "tree" if (layout_hint == "tree" or "tree" in (self.watch_as.get(name) or "")) else "graph"
         if layout_hint in {"tree", "graph", "list"}:
             kind = "tree" if layout_hint == "tree" else "graph"
-        root = walk_ptr(root_expr, type_str)
+        root, raw_root = walk_ptr(root_expr, type_str)
         # Auto-detect tree: acyclic and ≤1 parent.
         if layout_hint is None and nodes:
             parents: dict[str, int] = {n.addr: 0 for n in nodes}
@@ -503,6 +506,7 @@ class _Session:
             watch_as=self.watch_as.get(name),
             root=root,
             by_value=by_value,
+            note=raw_root if root == "invalid" else None,
         )
 
     def _linear_values(self, name: str, type_str: str, kind: str) -> list[Any]:
@@ -518,6 +522,8 @@ class _Session:
         raw = _eval(self.gdb, name)
         if raw is None:
             return []
+        if "std::" in type_str and "{" not in raw:
+            return []  # empty container: "std::stack wrapping: std::deque with 0 elements"
         if kind in {"stack", "queue"} and "c =" in raw:
             # libstdc++ pretty printer sometimes nests the container
             inner = raw[raw.find("{") :] if "{" in raw else raw
@@ -532,7 +538,7 @@ class _Session:
             return [_coerce_scalar(_eval(self.gdb, f"{name}[{i}]")) for i in range(n)]
         return [parsed]
 
-    def capture_vars(self) -> tuple[dict[str, Any], dict[str, Structure], dict[str, Any]]:
+    def capture_vars(self, func: str = "") -> tuple[dict[str, Any], dict[str, Structure], dict[str, Any]]:
         variables, args = self.locals_and_args()
         scalars: dict[str, Any] = {}
         structures: dict[str, Structure] = {}
@@ -562,11 +568,12 @@ class _Session:
             kind = _type_kind(type_str, watch)
             value = entry.get("value")
             bound = bound_for(name)
-            if kind == "pointer" and bound and "char" not in type_str:
+            pointee = re.sub(r"\s*[*&]\s*$", "", type_str).strip()
+            if kind == "pointer" and bound and "char" not in type_str and not self._ptype_fields(pointee):
                 raw = _eval(self.gdb, f"*{name}@{bound}")
                 parsed = _parse_brace_list(raw) if raw and "{" in raw else None
                 if parsed:
-                    structures[name] = Structure(kind="array", values=parsed, watch_as=watch)
+                    structures[name] = Structure(kind="array", values=parsed, watch_as=watch, type=type_str)
                     if is_arg:
                         arg_map[name] = parsed
                     return
@@ -583,21 +590,16 @@ class _Session:
                 hint = watch if watch in {"tree", "graph", "list"} else None
                 if "char" in type_str and "*" in type_str:
                     scalars[name] = _coerce_scalar(value if isinstance(value, str) else _eval(self.gdb, name))
-                else:
-                    pointee = re.sub(r"\s*\*+\s*$", "", type_str).strip()
-                    fields = self._ptype_fields(pointee) if "*" in type_str else []
-                    if fields or kind in {"tree", "graph"}:
-                        structures[name] = self._walk_graph(name, name, type_str, hint)
+                elif type_str.replace(" ", "").endswith("&"):
+                    # reference: the referent lives at &name
+                    if self._ptype_fields(pointee):
+                        structures[name] = self._walk_graph(name, f"&{name}", f"{pointee} *", hint)
                     else:
-                        addr = self._addr(name)
-                        if addr and not self._readable(addr):
-                            structures[name] = Structure(
-                                kind="graph",
-                                nodes=[GraphNode(addr="invalid", fields={}, note="ilegível")],
-                                edges=[GraphEdge(frm="root", field=name, to="invalid")],
-                            )
-                        else:
-                            scalars[name] = addr or _coerce_scalar(value if isinstance(value, str) else None)
+                        scalars[name] = _coerce_scalar(_eval(self.gdb, name))
+                else:
+                    # struct, primitive or opaque pointee: box-and-pointer, so null and
+                    # unreadable addresses get their own drawing
+                    structures[name] = self._walk_graph(name, name, type_str, hint)
             elif "*" in type_str and "char" not in type_str:
                 # struct by pointer without classified kind
                 structures[name] = self._walk_graph(name, name, type_str, None)
@@ -612,6 +614,8 @@ class _Session:
                     structures[name] = Structure(kind="array", values=coerced, watch_as=watch)
                 else:
                     scalars[name] = coerced
+            if name in structures:
+                structures[name].type = type_str
             if is_arg:
                 arg_map[name] = scalars.get(name)
                 if name in structures and structures[name].values is not None:
@@ -621,6 +625,11 @@ class _Session:
             consume(item, True)
         for item in variables:
             consume(item, False)
+        for name, st in structures.items():
+            exprs = self.indices.get(func, {}).get(name) if st.kind == "array" else None
+            if exprs:
+                values = [(e, _as_int(_eval(self.gdb, e))) for e in exprs]
+                st.indices = [{"expr": e, "value": v} for e, v in values if v is not None]
         return scalars, structures, arg_map
 
     def assign_frame_id(self, depth: int) -> tuple[int, str]:
@@ -650,7 +659,7 @@ class _Session:
         func = str(frame.get("func") or "?")
         depth = self.stack_depth()
         fid, event = self.assign_frame_id(depth)
-        scalars, structures, args = self.capture_vars()
+        scalars, structures, args = self.capture_vars(func)
         call_stack: list[FrameInfo] = []
         for i, fr in enumerate(self.frames()):
             if not self.in_user(fr):
@@ -725,7 +734,7 @@ def run_trace(
             if stop is None or _exited(stop):
                 return Trace(function=function or "main", cap=cap, hit_cap=False, source=source, steps=[])
 
-            session = _Session(gdb, source_path, watch_as, cap, step_into)
+            session = _Session(gdb, source_path, watch_as, cap, step_into, subscript_indices(source))
             session.leave_foreign()
             # At -O0 every function ends on its closing-brace line; `finish` there instead of
             # `step` so the return lands in the caller (with the value) before any sibling call.

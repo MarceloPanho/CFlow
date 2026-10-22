@@ -78,3 +78,34 @@ def list_functions(tree: Tree, source: str) -> list[FunctionInfo]:
 
     walk(tree.root_node)
     return out
+
+
+def subscript_indices(source: str) -> dict[str, dict[str, list[str]]]:
+    """Per function, the non-constant index expressions used on each array.
+
+    {"bubbleSort": {"arr": ["j", "j + 1"]}} -- the tracer evaluates them per step.
+    """
+    tree = parse_cpp(source)
+    out: dict[str, dict[str, list[str]]] = {}
+
+    def has_identifier(node: Node) -> bool:
+        return node.type == "identifier" or any(has_identifier(c) for c in node.children)
+
+    for fn in list_functions(tree, source):
+        found: dict[str, list[str]] = {}
+
+        def walk(node: Node) -> None:
+            if node.type == "subscript_expression":
+                arg = node.child_by_field_name("argument")
+                idx = node.child_by_field_name("indices")
+                if arg is not None and arg.type == "identifier" and idx is not None and idx.named_children:
+                    expr = " ".join(node_text(source, idx.named_children[0]).split())
+                    exprs = found.setdefault(node_text(source, arg), [])
+                    if has_identifier(idx) and expr not in exprs:
+                        exprs.append(expr)
+            for child in node.children:
+                walk(child)
+
+        walk(fn.node)
+        out[fn.name] = {k: v for k, v in found.items() if v}
+    return out

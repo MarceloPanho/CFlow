@@ -137,9 +137,8 @@ const Player = (() => {
     Flowchart.update(Flowchart.flowState(cfg, trace.steps, cursor), cursor === shown + 1);
     shown = cursor;
     renderCode(step.line);
-    const prev = cursor > 0 ? trace.steps[cursor - 1] : null;
     if (view === "tree") DataPanel.renderRecursion(trace.steps, cursor);
-    else DataPanel.render(step, prev, {});
+    else DataPanel.render(trace.steps, cursor);
   }
 
   function setEditMode(on) {
@@ -148,5 +147,5 @@ const Player = (() => {
     document.getElementById("code-mode-label").textContent = on ? "código · edição" : "código · visualização";
   }
 
-  return { bind, load, seek, toggle, setEditMode, current, get cursor() { return cursor; } };
+  return { bind, load, seek, toggle, setEditMode, current, show, get cursor() { return cursor; } };
 })();

@@ -279,6 +279,8 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
+      "note": "0x1",
       "nodes": [],
       "edges": [],
       "root": "invalid"
@@ -307,6 +309,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -337,6 +340,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -380,6 +384,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -463,6 +468,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -506,6 +512,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -547,6 +554,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -576,12 +584,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -624,12 +634,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -685,12 +697,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -746,12 +760,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -807,6 +823,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -857,6 +874,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -954,6 +972,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1004,6 +1023,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1054,12 +1074,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1116,18 +1138,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1193,18 +1218,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1268,18 +1296,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1331,18 +1362,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1395,18 +1429,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1472,18 +1509,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1549,18 +1589,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1626,6 +1669,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1676,6 +1720,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1773,6 +1818,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1823,6 +1869,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -1873,18 +1920,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -1951,24 +2001,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2044,24 +2098,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2135,24 +2193,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2214,24 +2276,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2294,24 +2360,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2387,24 +2457,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2480,24 +2554,28 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2573,12 +2651,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2641,12 +2721,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2709,12 +2791,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -2777,6 +2861,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -2834,6 +2919,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -2945,6 +3031,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -3002,6 +3089,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -3059,12 +3147,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3128,18 +3218,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3212,18 +3305,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3296,30 +3392,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3406,30 +3507,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3515,30 +3621,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3622,30 +3733,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3717,30 +3833,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3811,30 +3932,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -3916,30 +4042,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4021,18 +4152,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4101,18 +4235,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4181,12 +4318,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4252,12 +4391,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4323,6 +4464,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4383,6 +4525,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4443,6 +4586,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4503,12 +4647,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4575,6 +4721,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4635,6 +4782,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4695,6 +4843,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -4755,12 +4904,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4827,12 +4978,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4898,18 +5051,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -4979,6 +5135,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5032,6 +5189,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5085,6 +5243,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5138,18 +5297,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5219,18 +5381,21 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5299,30 +5464,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5405,12 +5575,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5469,12 +5641,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5533,6 +5707,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5586,6 +5761,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5639,6 +5815,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5692,12 +5869,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5757,6 +5936,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5810,6 +5990,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5863,6 +6044,7 @@
      "root": {
       "kind": "graph",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [],
       "edges": [],
       "root": null
@@ -5916,12 +6098,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -5981,12 +6165,14 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -6045,30 +6231,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -6151,30 +6342,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -6256,30 +6452,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [
@@ -6351,30 +6552,35 @@
      "root": {
       "kind": "tree",
       "layout_hint": null,
+      "type": "Node *",
       "nodes": [
        {
         "addr": "0x55555556b080",
         "fields": {
          "val": 1
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b040",
         "fields": {
          "val": 3
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b060",
         "fields": {
          "val": 8
-        }
+        },
+        "type": "Node"
        },
        {
         "addr": "0x55555556b020",
         "fields": {
          "val": 5
-        }
+        },
+        "type": "Node"
        }
       ],
       "edges": [

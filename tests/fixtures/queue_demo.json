@@ -165,6 +165,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": []
      }
     },
@@ -200,6 +201,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": []
      }
     },
@@ -235,9 +237,8 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
-      "values": [
-       "std::queue wrapping: std::deque with 0 elements"
-      ]
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
+      "values": []
      }
     },
     "args": {},
@@ -272,6 +273,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        10
       ]
@@ -309,6 +311,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        10,
        20
@@ -347,6 +350,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        10,
        20,
@@ -386,6 +390,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        10,
        20,
@@ -425,6 +430,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        10,
        20,
@@ -464,6 +470,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        20,
        30
@@ -502,6 +509,7 @@
      "q": {
       "kind": "queue",
       "layout_hint": null,
+      "type": "std::queue<int, std::deque<int, std::allocator<int> > >",
       "values": [
        20,
        30

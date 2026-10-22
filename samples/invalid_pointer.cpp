@@ -1,11 +1,10 @@
 int wild() {
-    int* p;
     int x = 1;
-    p = &x;
+    int* p = &x;
+    *p = 2;
     p = nullptr;
-    int* q;
-    (void)q;
-    return x;
+    int* q = reinterpret_cast<int*>(0x10);  // endereço que o programa não pode ler
+    return x + (q != nullptr);
 }
 
 int main() {

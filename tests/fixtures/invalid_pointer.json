@@ -20,18 +20,17 @@
       3,
       4,
       5,
-      6,
-      7
+      6
      ],
-     "label": "int* p\nint x = 1\np = &x\np = nullptr\nint* q\n(void)q"
+     "label": "int x = 1\nint* p = &x\n*p = 2\np = nullptr\nint* q = reinterpret_cast<int*>(0x10)"
     },
     {
      "id": "r3",
      "kind": "return",
      "lines": [
-      8
+      7
      ],
-     "label": "return x"
+     "label": "return x + (q != nullptr)"
     }
    ],
    "edges": [
@@ -52,7 +51,7 @@
      "id": "s1",
      "kind": "start",
      "lines": [
-      11
+      10
      ],
      "label": "main()"
     },
@@ -60,7 +59,7 @@
      "id": "r2",
      "kind": "return",
      "lines": [
-      12
+      11
      ],
      "label": "return wild()"
     }
@@ -80,7 +79,7 @@
   "steps": [
    {
     "i": 0,
-    "line": 12,
+    "line": 11,
     "func": "main",
     "stack_depth": 1,
     "scalars": {},
@@ -89,7 +88,7 @@
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 0
@@ -104,15 +103,31 @@
     "func": "wild",
     "stack_depth": 2,
     "scalars": {
-     "p": 0,
      "x": 0
     },
-    "structures": {},
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 1
@@ -130,19 +145,81 @@
    },
    {
     "i": 2,
-    "line": 3,
+    "line": 2,
     "func": "wild",
     "stack_depth": 2,
     "scalars": {
-     "p": 0,
      "x": 0
     },
-    "structures": {},
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 1
+     },
+     {
+      "func": "wild",
+      "line": 2,
+      "args": {},
+      "frame_id": 2,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 3,
+    "func": "wild",
+    "stack_depth": 2,
+    "scalars": {
+     "x": 1
+    },
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 1
@@ -159,20 +236,44 @@
     "frame_id": 2
    },
    {
-    "i": 3,
+    "i": 4,
     "line": 4,
     "func": "wild",
     "stack_depth": 2,
     "scalars": {
-     "p": 0,
      "x": 1
     },
-    "structures": {},
+    "structures": {
+     "p": {
+      "kind": "tree",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [
+       {
+        "addr": "0x7fffffffd474",
+        "fields": {
+         "value": 1
+        },
+        "type": "int"
+       }
+      ],
+      "edges": [],
+      "root": "0x7fffffffd474"
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 1
@@ -189,20 +290,44 @@
     "frame_id": 2
    },
    {
-    "i": 4,
+    "i": 5,
     "line": 5,
     "func": "wild",
     "stack_depth": 2,
     "scalars": {
-     "p": "0x7fffffffd47c",
-     "x": 1
+     "x": 2
     },
-    "structures": {},
+    "structures": {
+     "p": {
+      "kind": "tree",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [
+       {
+        "addr": "0x7fffffffd474",
+        "fields": {
+         "value": 2
+        },
+        "type": "int"
+       }
+      ],
+      "edges": [],
+      "root": "0x7fffffffd474"
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 1
@@ -219,20 +344,130 @@
     "frame_id": 2
    },
    {
-    "i": 5,
-    "line": 8,
+    "i": 6,
+    "line": 6,
     "func": "wild",
     "stack_depth": 2,
     "scalars": {
-     "p": 0,
-     "x": 1
+     "x": 2
     },
-    "structures": {},
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     }
+    },
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 1
+     },
+     {
+      "func": "wild",
+      "line": 6,
+      "args": {},
+      "frame_id": 2,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 7,
+    "line": 7,
+    "func": "wild",
+    "stack_depth": 2,
+    "scalars": {
+     "x": 2
+    },
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "note": "0x10",
+      "nodes": [],
+      "edges": [],
+      "root": "invalid"
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 1
+     },
+     {
+      "func": "wild",
+      "line": 7,
+      "args": {},
+      "frame_id": 2,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 8,
+    "line": 8,
+    "func": "wild",
+    "stack_depth": 2,
+    "scalars": {
+     "x": 2
+    },
+    "structures": {
+     "p": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "nodes": [],
+      "edges": [],
+      "root": null
+     },
+     "q": {
+      "kind": "graph",
+      "layout_hint": null,
+      "type": "int *",
+      "note": "0x10",
+      "nodes": [],
+      "edges": [],
+      "root": "invalid"
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 11,
       "args": {},
       "frame_id": 1,
       "level": 1
@@ -249,37 +484,28 @@
     "frame_id": 2
    },
    {
-    "i": 6,
-    "line": 9,
-    "func": "wild",
-    "stack_depth": 2,
-    "scalars": {
-     "p": 0,
-     "x": 1
-    },
+    "i": 9,
+    "line": 11,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
     "structures": {},
     "args": {},
     "call_stack": [
      {
       "func": "main",
-      "line": 12,
+      "line": 11,
       "args": {},
       "frame_id": 1,
-      "level": 1
-     },
-     {
-      "func": "wild",
-      "line": 9,
-      "args": {},
-      "frame_id": 2,
       "level": 0
      }
     ],
-    "event": "line",
-    "frame_id": 2
+    "event": "return",
+    "frame_id": 1,
+    "return_value": 3
    },
    {
-    "i": 7,
+    "i": 10,
     "line": 12,
     "func": "main",
     "stack_depth": 1,
@@ -295,32 +521,11 @@
       "level": 0
      }
     ],
-    "event": "return",
-    "frame_id": 1,
-    "return_value": 1
-   },
-   {
-    "i": 8,
-    "line": 13,
-    "func": "main",
-    "stack_depth": 1,
-    "scalars": {},
-    "structures": {},
-    "args": {},
-    "call_stack": [
-     {
-      "func": "main",
-      "line": 13,
-      "args": {},
-      "frame_id": 1,
-      "level": 0
-     }
-    ],
     "event": "line",
     "frame_id": 1
    }
   ],
-  "source": "int wild() {\n    int* p;\n    int x = 1;\n    p = &x;\n    p = nullptr;\n    int* q;\n    (void)q;\n    return x;\n}\n\nint main() {\n    return wild();\n}\n"
+  "source": "int wild() {\n    int x = 1;\n    int* p = &x;\n    *p = 2;\n    p = nullptr;\n    int* q = reinterpret_cast<int*>(0x10);  // endereço que o programa não pode ler\n    return x + (q != nullptr);\n}\n\nint main() {\n    return wild();\n}\n"
  },
- "source": "int wild() {\n    int* p;\n    int x = 1;\n    p = &x;\n    p = nullptr;\n    int* q;\n    (void)q;\n    return x;\n}\n\nint main() {\n    return wild();\n}\n"
+ "source": "int wild() {\n    int x = 1;\n    int* p = &x;\n    *p = 2;\n    p = nullptr;\n    int* q = reinterpret_cast<int*>(0x10);  // endereço que o programa não pode ler\n    return x + (q != nullptr);\n}\n\nint main() {\n    return wild();\n}\n"
 }

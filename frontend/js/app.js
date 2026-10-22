@@ -62,6 +62,13 @@
       Player.setEditMode(true);
       btnEdit.hidden = true;
     });
+    document.getElementById("array-mode").addEventListener("click", (ev) => {
+      const btn = ev.target.closest("button");
+      if (!btn) return;
+      ev.currentTarget.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      DataPanel.setArrayMode(btn.dataset.mode);
+      Player.show();
+    });
     setupSplits();
   }
 

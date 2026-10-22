@@ -58,12 +58,14 @@
         <section class="pane data" id="data-pane">
           <div class="pane-head">
             <h1>estruturas</h1>
-            <label class="check small">
-              <input type="checkbox" id="stl-structural" />
-              Fiação STL
-            </label>
+            <span id="frame-label" class="pane-sub"></span>
+            <div class="seg" id="array-mode" role="group" aria-label="Desenho do array" hidden>
+              <button type="button" data-mode="cells" aria-pressed="true">Células</button>
+              <button type="button" data-mode="bars" aria-pressed="false">Barras</button>
+            </div>
           </div>
           <div id="datapanel" class="datapanel"></div>
+          <p class="hint">Botão direito numa variável: observar como pilha, fila, árvore ou array[n].</p>
         </section>
       </div>
       <div class="v-split" id="v-split" role="separator" aria-orientation="vertical"></div>
