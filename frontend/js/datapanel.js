@@ -236,7 +236,7 @@ const DataPanel = (() => {
       return copy;
     }
     if (window.dagre) {
-      const g = new dagre.graphlib.Graph();
+      const g = new dagre.graphlib.Graph({ multigraph: true });
       g.setGraph({ rankdir: "LR", nodesep: 24, ranksep: 48 });
       g.setDefaultEdgeLabel(() => ({}));
       copy.forEach((n) => g.setNode(n.addr, { width: 92, height: 48 }));

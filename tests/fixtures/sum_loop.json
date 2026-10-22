@@ -1,0 +1,656 @@
+{
+ "ok": true,
+ "cfgs": {
+  "sum_to": {
+   "function": "sum_to",
+   "nodes": [
+    {
+     "id": "b1",
+     "kind": "block",
+     "lines": [
+      2
+     ],
+     "label": "int s = 0"
+    },
+    {
+     "id": "b2",
+     "kind": "block",
+     "lines": [
+      3
+     ],
+     "label": "int i = 1"
+    },
+    {
+     "id": "d3",
+     "kind": "decision",
+     "lines": [
+      3
+     ],
+     "label": "i <= n"
+    },
+    {
+     "id": "b4",
+     "kind": "block",
+     "lines": [
+      4
+     ],
+     "label": "s += i"
+    },
+    {
+     "id": "b5",
+     "kind": "block",
+     "lines": [
+      3
+     ],
+     "label": "i++"
+    },
+    {
+     "id": "r6",
+     "kind": "return",
+     "lines": [
+      6
+     ],
+     "label": "return s"
+    }
+   ],
+   "edges": [
+    {
+     "from": "b1",
+     "to": "b2"
+    },
+    {
+     "from": "b2",
+     "to": "d3"
+    },
+    {
+     "from": "d3",
+     "to": "b4",
+     "label": "true"
+    },
+    {
+     "from": "b4",
+     "to": "b5"
+    },
+    {
+     "from": "b5",
+     "to": "d3"
+    },
+    {
+     "from": "d3",
+     "to": "r6",
+     "label": "false"
+    }
+   ]
+  },
+  "main": {
+   "function": "main",
+   "nodes": [
+    {
+     "id": "r1",
+     "kind": "return",
+     "lines": [
+      10
+     ],
+     "label": "return sum_to(5)"
+    }
+   ],
+   "edges": []
+  }
+ },
+ "trace": {
+  "function": "sum_to",
+  "cap": 300,
+  "hit_cap": false,
+  "steps": [
+   {
+    "i": 0,
+    "line": 10,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 1
+   },
+   {
+    "i": 1,
+    "line": 2,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "s": 0
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 2,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 2
+   },
+   {
+    "i": 2,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 0,
+     "s": 0
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 4,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 1,
+     "s": 0
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 4,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 4,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 1,
+     "s": 1
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 5,
+    "line": 4,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 2,
+     "s": 1
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 4,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 6,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 2,
+     "s": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 7,
+    "line": 4,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 3,
+     "s": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 4,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 8,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 3,
+     "s": 6
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 9,
+    "line": 4,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 4,
+     "s": 6
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 4,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 10,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 4,
+     "s": 10
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 11,
+    "line": 4,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 5,
+     "s": 10
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 4,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 12,
+    "line": 3,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "i": 5,
+     "s": 15
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 3,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 13,
+    "line": 6,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "s": 15
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 6,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 14,
+    "line": 7,
+    "func": "sum_to",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 5,
+     "s": 15
+    },
+    "structures": {},
+    "args": {
+     "n": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "sum_to",
+      "line": 7,
+      "args": {
+       "n": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 15,
+    "line": 10,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 16,
+    "line": 11,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   }
+  ],
+  "source": "int sum_to(int n) {\n    int s = 0;\n    for (int i = 1; i <= n; i++) {\n        s += i;\n    }\n    return s;\n}\n\nint main() {\n    return sum_to(5);\n}\n"
+ },
+ "source": "int sum_to(int n) {\n    int s = 0;\n    for (int i = 1; i <= n; i++) {\n        s += i;\n    }\n    return s;\n}\n\nint main() {\n    return sum_to(5);\n}\n"
+}

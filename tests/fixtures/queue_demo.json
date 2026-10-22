@@ -1,0 +1,626 @@
+{
+ "ok": true,
+ "cfgs": {
+  "queue_demo": {
+   "function": "queue_demo",
+   "nodes": [
+    {
+     "id": "b1",
+     "kind": "block",
+     "lines": [
+      4
+     ],
+     "label": "std::queue<int> q"
+    },
+    {
+     "id": "c2",
+     "kind": "call",
+     "lines": [
+      5
+     ],
+     "label": "q.push(10)"
+    },
+    {
+     "id": "c3",
+     "kind": "call",
+     "lines": [
+      6
+     ],
+     "label": "q.push(20)"
+    },
+    {
+     "id": "c4",
+     "kind": "call",
+     "lines": [
+      7
+     ],
+     "label": "q.push(30)"
+    },
+    {
+     "id": "b5",
+     "kind": "block",
+     "lines": [
+      8
+     ],
+     "label": "int front = q.front()"
+    },
+    {
+     "id": "c6",
+     "kind": "call",
+     "lines": [
+      9
+     ],
+     "label": "q.pop()"
+    },
+    {
+     "id": "r7",
+     "kind": "return",
+     "lines": [
+      10
+     ],
+     "label": "return front"
+    }
+   ],
+   "edges": [
+    {
+     "from": "b1",
+     "to": "c2"
+    },
+    {
+     "from": "c2",
+     "to": "c3"
+    },
+    {
+     "from": "c3",
+     "to": "c4"
+    },
+    {
+     "from": "c4",
+     "to": "b5"
+    },
+    {
+     "from": "b5",
+     "to": "c6"
+    },
+    {
+     "from": "c6",
+     "to": "r7"
+    }
+   ]
+  },
+  "main": {
+   "function": "main",
+   "nodes": [
+    {
+     "id": "r1",
+     "kind": "return",
+     "lines": [
+      14
+     ],
+     "label": "return queue_demo()"
+    }
+   ],
+   "edges": []
+  }
+ },
+ "trace": {
+  "function": "queue_demo",
+  "cap": 300,
+  "hit_cap": false,
+  "steps": [
+   {
+    "i": 0,
+    "line": 14,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 1
+   },
+   {
+    "i": 1,
+    "line": 3,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 3,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 2
+   },
+   {
+    "i": 2,
+    "line": 4,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 4,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 5,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       "std::queue wrapping: std::deque with 0 elements"
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 5,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 4,
+    "line": 6,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       10
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 6,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 5,
+    "line": 7,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       10,
+       20
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 7,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 6,
+    "line": 8,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       10,
+       20,
+       30
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 8,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 7,
+    "line": 8,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 32767
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       10,
+       20,
+       30
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 8,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 8,
+    "line": 9,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 10
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       10,
+       20,
+       30
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 9,
+    "line": 10,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 10
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       20,
+       30
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 10,
+    "line": 11,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 10
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       20,
+       30
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 11,
+    "line": 10,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 10
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       5,
+       -17406891
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 12,
+    "line": 11,
+    "func": "queue_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "front": 10
+    },
+    "structures": {
+     "q": {
+      "kind": "queue",
+      "layout_hint": null,
+      "values": [
+       5,
+       -17406891
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "queue_demo",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 13,
+    "line": 14,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 14,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 14,
+    "line": 15,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   }
+  ],
+  "source": "#include <queue>\n\nint queue_demo() {\n    std::queue<int> q;\n    q.push(10);\n    q.push(20);\n    q.push(30);\n    int front = q.front();\n    q.pop();\n    return front;\n}\n\nint main() {\n    return queue_demo();\n}\n"
+ },
+ "source": "#include <queue>\n\nint queue_demo() {\n    std::queue<int> q;\n    q.push(10);\n    q.push(20);\n    q.push(30);\n    int front = q.front();\n    q.pop();\n    return front;\n}\n\nint main() {\n    return queue_demo();\n}\n"
+}

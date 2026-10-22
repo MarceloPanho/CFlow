@@ -1,0 +1,651 @@
+{
+ "ok": true,
+ "cfgs": {
+  "factorial": {
+   "function": "factorial",
+   "nodes": [
+    {
+     "id": "d1",
+     "kind": "decision",
+     "lines": [
+      2
+     ],
+     "label": "n <= 1"
+    },
+    {
+     "id": "r2",
+     "kind": "return",
+     "lines": [
+      3
+     ],
+     "label": "return 1"
+    },
+    {
+     "id": "r3",
+     "kind": "return",
+     "lines": [
+      5
+     ],
+     "label": "return n * factorial(n - 1)"
+    }
+   ],
+   "edges": [
+    {
+     "from": "d1",
+     "to": "r2",
+     "label": "true"
+    },
+    {
+     "from": "d1",
+     "to": "r3",
+     "label": "false"
+    }
+   ]
+  },
+  "main": {
+   "function": "main",
+   "nodes": [
+    {
+     "id": "r1",
+     "kind": "return",
+     "lines": [
+      9
+     ],
+     "label": "return factorial(4)"
+    }
+   ],
+   "edges": []
+  }
+ },
+ "trace": {
+  "function": "factorial",
+  "cap": 300,
+  "hit_cap": false,
+  "steps": [
+   {
+    "i": 0,
+    "line": 9,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 1
+   },
+   {
+    "i": 1,
+    "line": 2,
+    "func": "factorial",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 4
+    },
+    "structures": {},
+    "args": {
+     "n": 4
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 2,
+      "args": {
+       "n": 4
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 2
+   },
+   {
+    "i": 2,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 4
+    },
+    "structures": {},
+    "args": {
+     "n": 4
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {
+       "n": 4
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 2,
+    "func": "factorial",
+    "stack_depth": 3,
+    "scalars": {
+     "n": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 2,
+      "args": {
+       "n": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 3
+   },
+   {
+    "i": 4,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 3,
+    "scalars": {
+     "n": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {
+       "n": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 3
+   },
+   {
+    "i": 5,
+    "line": 2,
+    "func": "factorial",
+    "stack_depth": 4,
+    "scalars": {
+     "n": 2
+    },
+    "structures": {},
+    "args": {
+     "n": 2
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 2,
+      "args": {
+       "n": 2
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 4
+   },
+   {
+    "i": 6,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 4,
+    "scalars": {
+     "n": 2
+    },
+    "structures": {},
+    "args": {
+     "n": 2
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {
+       "n": 2
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 4
+   },
+   {
+    "i": 7,
+    "line": 2,
+    "func": "factorial",
+    "stack_depth": 5,
+    "scalars": {
+     "n": 1
+    },
+    "structures": {},
+    "args": {
+     "n": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 5,
+      "level": 4
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 2,
+      "args": {
+       "n": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 5
+   },
+   {
+    "i": 8,
+    "line": 3,
+    "func": "factorial",
+    "stack_depth": 5,
+    "scalars": {
+     "n": 1
+    },
+    "structures": {},
+    "args": {
+     "n": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 5,
+      "level": 4
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 3,
+      "args": {
+       "n": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 5
+   },
+   {
+    "i": 9,
+    "line": 6,
+    "func": "factorial",
+    "stack_depth": 5,
+    "scalars": {
+     "n": 1
+    },
+    "structures": {},
+    "args": {
+     "n": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 5,
+      "level": 4
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 6,
+      "args": {
+       "n": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 5
+   },
+   {
+    "i": 10,
+    "line": 6,
+    "func": "factorial",
+    "stack_depth": 4,
+    "scalars": {
+     "n": 2
+    },
+    "structures": {},
+    "args": {
+     "n": 2
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 4,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 6,
+      "args": {
+       "n": 2
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 4
+   },
+   {
+    "i": 11,
+    "line": 6,
+    "func": "factorial",
+    "stack_depth": 3,
+    "scalars": {
+     "n": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 6,
+      "args": {
+       "n": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 3
+   },
+   {
+    "i": 12,
+    "line": 6,
+    "func": "factorial",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 4
+    },
+    "structures": {},
+    "args": {
+     "n": 4
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 6,
+      "args": {
+       "n": 4
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 2
+   },
+   {
+    "i": 13,
+    "line": 9,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 14,
+    "line": 10,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   }
+  ],
+  "source": "int factorial(int n) {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}\n\nint main() {\n    return factorial(4);\n}\n"
+ },
+ "source": "int factorial(int n) {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}\n\nint main() {\n    return factorial(4);\n}\n"
+}

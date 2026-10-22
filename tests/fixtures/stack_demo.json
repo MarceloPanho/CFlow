@@ -1,0 +1,672 @@
+{
+ "ok": true,
+ "cfgs": {
+  "stack_demo": {
+   "function": "stack_demo",
+   "nodes": [
+    {
+     "id": "b1",
+     "kind": "block",
+     "lines": [
+      4
+     ],
+     "label": "std::stack<int> st"
+    },
+    {
+     "id": "c2",
+     "kind": "call",
+     "lines": [
+      5
+     ],
+     "label": "st.push(1)"
+    },
+    {
+     "id": "c3",
+     "kind": "call",
+     "lines": [
+      6
+     ],
+     "label": "st.push(2)"
+    },
+    {
+     "id": "c4",
+     "kind": "call",
+     "lines": [
+      7
+     ],
+     "label": "st.push(3)"
+    },
+    {
+     "id": "b5",
+     "kind": "block",
+     "lines": [
+      8
+     ],
+     "label": "int top = st.top()"
+    },
+    {
+     "id": "c6",
+     "kind": "call",
+     "lines": [
+      9
+     ],
+     "label": "st.pop()"
+    },
+    {
+     "id": "c7",
+     "kind": "call",
+     "lines": [
+      10
+     ],
+     "label": "st.pop()"
+    },
+    {
+     "id": "r8",
+     "kind": "return",
+     "lines": [
+      11
+     ],
+     "label": "return top"
+    }
+   ],
+   "edges": [
+    {
+     "from": "b1",
+     "to": "c2"
+    },
+    {
+     "from": "c2",
+     "to": "c3"
+    },
+    {
+     "from": "c3",
+     "to": "c4"
+    },
+    {
+     "from": "c4",
+     "to": "b5"
+    },
+    {
+     "from": "b5",
+     "to": "c6"
+    },
+    {
+     "from": "c6",
+     "to": "c7"
+    },
+    {
+     "from": "c7",
+     "to": "r8"
+    }
+   ]
+  },
+  "main": {
+   "function": "main",
+   "nodes": [
+    {
+     "id": "r1",
+     "kind": "return",
+     "lines": [
+      15
+     ],
+     "label": "return stack_demo()"
+    }
+   ],
+   "edges": []
+  }
+ },
+ "trace": {
+  "function": "stack_demo",
+  "cap": 300,
+  "hit_cap": false,
+  "steps": [
+   {
+    "i": 0,
+    "line": 15,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 1
+   },
+   {
+    "i": 1,
+    "line": 3,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 3,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 2
+   },
+   {
+    "i": 2,
+    "line": 4,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 4,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 5,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       "std::stack wrapping: std::deque with 0 elements"
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 5,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 4,
+    "line": 6,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 6,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 5,
+    "line": 7,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1,
+       2
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 7,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 6,
+    "line": 8,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1,
+       2,
+       3
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 8,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 7,
+    "line": 8,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 32767
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1,
+       2,
+       3
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 8,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 8,
+    "line": 9,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1,
+       2,
+       3
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 9,
+    "line": 10,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1,
+       2
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 10,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 10,
+    "line": 11,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 11,
+    "line": 12,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 12,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 12,
+    "line": 11,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1431655788
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 11,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 13,
+    "line": 12,
+    "func": "stack_demo",
+    "stack_depth": 2,
+    "scalars": {
+     "top": 3
+    },
+    "structures": {
+     "st": {
+      "kind": "stack",
+      "layout_hint": null,
+      "values": [
+       1431655788
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "stack_demo",
+      "line": 12,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 14,
+    "line": 15,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 15,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 15,
+    "line": 16,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {},
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 16,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   }
+  ],
+  "source": "#include <stack>\n\nint stack_demo() {\n    std::stack<int> st;\n    st.push(1);\n    st.push(2);\n    st.push(3);\n    int top = st.top();\n    st.pop();\n    st.pop();\n    return top;\n}\n\nint main() {\n    return stack_demo();\n}\n"
+ },
+ "source": "#include <stack>\n\nint stack_demo() {\n    std::stack<int> st;\n    st.push(1);\n    st.push(2);\n    st.push(3);\n    int top = st.top();\n    st.pop();\n    st.pop();\n    return top;\n}\n\nint main() {\n    return stack_demo();\n}\n"
+}

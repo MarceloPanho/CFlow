@@ -1,0 +1,4883 @@
+{
+ "ok": true,
+ "cfgs": {
+  "Node": {
+   "function": "Node",
+   "nodes": [],
+   "edges": []
+  },
+  "insert": {
+   "function": "insert",
+   "nodes": [
+    {
+     "id": "d1",
+     "kind": "decision",
+     "lines": [
+      9
+     ],
+     "label": "root == nullptr"
+    },
+    {
+     "id": "r2",
+     "kind": "return",
+     "lines": [
+      10
+     ],
+     "label": "return new Node(v)"
+    },
+    {
+     "id": "d3",
+     "kind": "decision",
+     "lines": [
+      12
+     ],
+     "label": "v < root->val"
+    },
+    {
+     "id": "c4",
+     "kind": "call",
+     "lines": [
+      13
+     ],
+     "label": "root->left = insert(root->left, v)"
+    },
+    {
+     "id": "c5",
+     "kind": "call",
+     "lines": [
+      15
+     ],
+     "label": "root->right = insert(root->right, v)"
+    },
+    {
+     "id": "r6",
+     "kind": "return",
+     "lines": [
+      17
+     ],
+     "label": "return root"
+    }
+   ],
+   "edges": [
+    {
+     "from": "d1",
+     "to": "r2",
+     "label": "true"
+    },
+    {
+     "from": "d1",
+     "to": "d3",
+     "label": "false"
+    },
+    {
+     "from": "d3",
+     "to": "c4",
+     "label": "true"
+    },
+    {
+     "from": "d3",
+     "to": "c5",
+     "label": "false"
+    },
+    {
+     "from": "c4",
+     "to": "r6"
+    },
+    {
+     "from": "c5",
+     "to": "r6"
+    }
+   ]
+  },
+  "walk": {
+   "function": "walk",
+   "nodes": [
+    {
+     "id": "d1",
+     "kind": "decision",
+     "lines": [
+      21
+     ],
+     "label": "root == nullptr"
+    },
+    {
+     "id": "r2",
+     "kind": "return",
+     "lines": [
+      22
+     ],
+     "label": "return 0"
+    },
+    {
+     "id": "r3",
+     "kind": "return",
+     "lines": [
+      24
+     ],
+     "label": "return root->val + walk(root->left) + wal…"
+    }
+   ],
+   "edges": [
+    {
+     "from": "d1",
+     "to": "r2",
+     "label": "true"
+    },
+    {
+     "from": "d1",
+     "to": "r3",
+     "label": "false"
+    }
+   ]
+  },
+  "main": {
+   "function": "main",
+   "nodes": [
+    {
+     "id": "b1",
+     "kind": "block",
+     "lines": [
+      28
+     ],
+     "label": "Node* root = nullptr"
+    },
+    {
+     "id": "c2",
+     "kind": "call",
+     "lines": [
+      29
+     ],
+     "label": "root = insert(root, 5)"
+    },
+    {
+     "id": "c3",
+     "kind": "call",
+     "lines": [
+      30
+     ],
+     "label": "root = insert(root, 3)"
+    },
+    {
+     "id": "c4",
+     "kind": "call",
+     "lines": [
+      31
+     ],
+     "label": "root = insert(root, 8)"
+    },
+    {
+     "id": "c5",
+     "kind": "call",
+     "lines": [
+      32
+     ],
+     "label": "root = insert(root, 1)"
+    },
+    {
+     "id": "r6",
+     "kind": "return",
+     "lines": [
+      33
+     ],
+     "label": "return walk(root)"
+    }
+   ],
+   "edges": [
+    {
+     "from": "b1",
+     "to": "c2"
+    },
+    {
+     "from": "c2",
+     "to": "c3"
+    },
+    {
+     "from": "c3",
+     "to": "c4"
+    },
+    {
+     "from": "c4",
+     "to": "c5"
+    },
+    {
+     "from": "c5",
+     "to": "r6"
+    }
+   ]
+  }
+ },
+ "trace": {
+  "function": "insert",
+  "cap": 300,
+  "hit_cap": false,
+  "steps": [
+   {
+    "i": 0,
+    "line": 28,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 28,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 1
+   },
+   {
+    "i": 1,
+    "line": 29,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 29,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   },
+   {
+    "i": 2,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 5
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 29,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 2
+   },
+   {
+    "i": 3,
+    "line": 10,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 5
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 29,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {
+       "root": null,
+       "v": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 2
+   },
+   {
+    "i": 4,
+    "line": 5,
+    "func": "Node::Node",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 5
+    },
+    "structures": {},
+    "args": {
+     "v": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 29,
+      "args": {},
+      "frame_id": 3,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "Node::Node",
+      "line": 5,
+      "args": {
+       "v": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 3
+   },
+   {
+    "i": 5,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 5
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 5
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 29,
+      "args": {},
+      "frame_id": 2,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 5
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 2
+   },
+   {
+    "i": 6,
+    "line": 30,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 7,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 4
+   },
+   {
+    "i": 8,
+    "line": 12,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 12,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 4
+   },
+   {
+    "i": 9,
+    "line": 13,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 4
+   },
+   {
+    "i": 10,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 5,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 5
+   },
+   {
+    "i": 11,
+    "line": 10,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 5,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 5
+   },
+   {
+    "i": 12,
+    "line": 5,
+    "func": "Node::Node",
+    "stack_depth": 4,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {},
+    "args": {
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 6,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 5,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "Node::Node",
+      "line": 5,
+      "args": {
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 6
+   },
+   {
+    "i": 13,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 5,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 5
+   },
+   {
+    "i": 14,
+    "line": 17,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 17,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 4
+   },
+   {
+    "i": 15,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 3
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 30,
+      "args": {},
+      "frame_id": 4,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 3
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 4
+   },
+   {
+    "i": 16,
+    "line": 31,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 17,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 7
+   },
+   {
+    "i": 18,
+    "line": 12,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 12,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 7
+   },
+   {
+    "i": 19,
+    "line": 15,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 15,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 7
+   },
+   {
+    "i": 20,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 8,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 15,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 8
+   },
+   {
+    "i": 21,
+    "line": 10,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 8,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 15,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 8
+   },
+   {
+    "i": 22,
+    "line": 5,
+    "func": "Node::Node",
+    "stack_depth": 4,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {},
+    "args": {
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 9,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 15,
+      "args": {},
+      "frame_id": 8,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "Node::Node",
+      "line": 5,
+      "args": {
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 9
+   },
+   {
+    "i": 23,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 8,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 15,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 8
+   },
+   {
+    "i": 24,
+    "line": 17,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 17,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 7
+   },
+   {
+    "i": 25,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 8
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 8
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 31,
+      "args": {},
+      "frame_id": 7,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 8
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 7
+   },
+   {
+    "i": 26,
+    "line": 32,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 27,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 10
+   },
+   {
+    "i": 28,
+    "line": 12,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 12,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 10
+   },
+   {
+    "i": 29,
+    "line": 13,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 10
+   },
+   {
+    "i": 30,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 11
+   },
+   {
+    "i": 31,
+    "line": 12,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 12,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 11
+   },
+   {
+    "i": 32,
+    "line": 13,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 11
+   },
+   {
+    "i": 33,
+    "line": 9,
+    "func": "insert",
+    "stack_depth": 4,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 12,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 9,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 12
+   },
+   {
+    "i": 34,
+    "line": 10,
+    "func": "insert",
+    "stack_depth": 4,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 12,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 12
+   },
+   {
+    "i": 35,
+    "line": 5,
+    "func": "Node::Node",
+    "stack_depth": 5,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {},
+    "args": {
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 13,
+      "level": 4
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 12,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 10,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "Node::Node",
+      "line": 5,
+      "args": {
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 13
+   },
+   {
+    "i": 36,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 4,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 12,
+      "level": 3
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 12
+   },
+   {
+    "i": 37,
+    "line": 17,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 17,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 11
+   },
+   {
+    "i": 38,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 3,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 11,
+      "level": 2
+     },
+     {
+      "func": "insert",
+      "line": 13,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 11
+   },
+   {
+    "i": 39,
+    "line": 17,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 17,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 10
+   },
+   {
+    "i": 40,
+    "line": 18,
+    "func": "insert",
+    "stack_depth": 2,
+    "scalars": {
+     "v": 1
+    },
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null,
+     "v": 1
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 32,
+      "args": {},
+      "frame_id": 10,
+      "level": 1
+     },
+     {
+      "func": "insert",
+      "line": 18,
+      "args": {
+       "root": null,
+       "v": 1
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 10
+   },
+   {
+    "i": 41,
+    "line": 33,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 42,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 2,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 14
+   },
+   {
+    "i": 43,
+    "line": 24,
+    "func": "walk",
+    "stack_depth": 2,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 14
+   },
+   {
+    "i": 44,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 15
+   },
+   {
+    "i": 45,
+    "line": 24,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 15
+   },
+   {
+    "i": 46,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 16
+   },
+   {
+    "i": 47,
+    "line": 24,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 16
+   },
+   {
+    "i": 48,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 17
+   },
+   {
+    "i": 49,
+    "line": 22,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 22,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 17
+   },
+   {
+    "i": 50,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 17
+   },
+   {
+    "i": 51,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 17
+   },
+   {
+    "i": 52,
+    "line": 22,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 22,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 17
+   },
+   {
+    "i": 53,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 5,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 17,
+      "level": 4
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 17
+   },
+   {
+    "i": 54,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 16
+   },
+   {
+    "i": 55,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 16
+   },
+   {
+    "i": 56,
+    "line": 22,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 22,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 16
+   },
+   {
+    "i": 57,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 16,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 16
+   },
+   {
+    "i": 58,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 15
+   },
+   {
+    "i": 59,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 15
+   },
+   {
+    "i": 60,
+    "line": 24,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 15
+   },
+   {
+    "i": 61,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "call",
+    "frame_id": 18
+   },
+   {
+    "i": 62,
+    "line": 22,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 22,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 18
+   },
+   {
+    "i": 63,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 18
+   },
+   {
+    "i": 64,
+    "line": 21,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 21,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 18
+   },
+   {
+    "i": 65,
+    "line": 22,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 22,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 18
+   },
+   {
+    "i": 66,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 4,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "graph",
+      "layout_hint": null,
+      "nodes": [],
+      "edges": []
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 18,
+      "level": 3
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 18
+   },
+   {
+    "i": 67,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 3,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 15,
+      "level": 2
+     },
+     {
+      "func": "walk",
+      "line": 24,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 15
+   },
+   {
+    "i": 68,
+    "line": 25,
+    "func": "walk",
+    "stack_depth": 2,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {
+     "root": null
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 14,
+      "level": 1
+     },
+     {
+      "func": "walk",
+      "line": 25,
+      "args": {
+       "root": null
+      },
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 14
+   },
+   {
+    "i": 69,
+    "line": 33,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 33,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 1
+   },
+   {
+    "i": 70,
+    "line": 34,
+    "func": "main",
+    "stack_depth": 1,
+    "scalars": {},
+    "structures": {
+     "root": {
+      "kind": "tree",
+      "layout_hint": null,
+      "nodes": [
+       {
+        "addr": "0x55555556b080",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x55555556b040",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x55555556b060",
+        "fields": {
+         "val": 8
+        }
+       },
+       {
+        "addr": "0x55555556b020",
+        "fields": {
+         "val": 5
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x55555556b080",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b080",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "left",
+        "to": "0x55555556b080"
+       },
+       {
+        "from": "0x55555556b040",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "left",
+        "to": "0x55555556b040"
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "left",
+        "to": null
+       },
+       {
+        "from": "0x55555556b060",
+        "field": "right",
+        "to": null
+       },
+       {
+        "from": "0x55555556b020",
+        "field": "right",
+        "to": "0x55555556b060"
+       }
+      ]
+     }
+    },
+    "args": {},
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 34,
+      "args": {},
+      "frame_id": 1,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 1
+   }
+  ],
+  "source": "struct Node {\n    int val;\n    Node* left;\n    Node* right;\n    Node(int v) : val(v), left(nullptr), right(nullptr) {}\n};\n\nNode* insert(Node* root, int v) {\n    if (root == nullptr) {\n        return new Node(v);\n    }\n    if (v < root->val) {\n        root->left = insert(root->left, v);\n    } else {\n        root->right = insert(root->right, v);\n    }\n    return root;\n}\n\nint walk(Node* root) {\n    if (root == nullptr) {\n        return 0;\n    }\n    return root->val + walk(root->left) + walk(root->right);\n}\n\nint main() {\n    Node* root = nullptr;\n    root = insert(root, 5);\n    root = insert(root, 3);\n    root = insert(root, 8);\n    root = insert(root, 1);\n    return walk(root);\n}\n"
+ },
+ "source": "struct Node {\n    int val;\n    Node* left;\n    Node* right;\n    Node(int v) : val(v), left(nullptr), right(nullptr) {}\n};\n\nNode* insert(Node* root, int v) {\n    if (root == nullptr) {\n        return new Node(v);\n    }\n    if (v < root->val) {\n        root->left = insert(root->left, v);\n    } else {\n        root->right = insert(root->right, v);\n    }\n    return root;\n}\n\nint walk(Node* root) {\n    if (root == nullptr) {\n        return 0;\n    }\n    return root->val + walk(root->left) + walk(root->right);\n}\n\nint main() {\n    Node* root = nullptr;\n    root = insert(root, 5);\n    root = insert(root, 3);\n    root = insert(root, 8);\n    root = insert(root, 1);\n    return walk(root);\n}\n"
+}
