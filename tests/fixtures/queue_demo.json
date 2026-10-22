@@ -149,14 +149,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 3,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -184,14 +184,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 4,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -221,14 +221,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 5,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -258,14 +258,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 6,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -296,14 +296,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 7,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -335,14 +335,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 8,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -374,14 +374,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 8,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -413,14 +413,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 9,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -451,14 +451,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 10,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -489,14 +489,14 @@
       "func": "main",
       "line": 14,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "queue_demo",
       "line": 11,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -505,82 +505,6 @@
    },
    {
     "i": 11,
-    "line": 10,
-    "func": "queue_demo",
-    "stack_depth": 2,
-    "scalars": {
-     "front": 10
-    },
-    "structures": {
-     "q": {
-      "kind": "queue",
-      "layout_hint": null,
-      "values": [
-       5,
-       -17406891
-      ]
-     }
-    },
-    "args": {},
-    "call_stack": [
-     {
-      "func": "main",
-      "line": 14,
-      "args": {},
-      "frame_id": 2,
-      "level": 1
-     },
-     {
-      "func": "queue_demo",
-      "line": 10,
-      "args": {},
-      "frame_id": 1,
-      "level": 0
-     }
-    ],
-    "event": "line",
-    "frame_id": 2
-   },
-   {
-    "i": 12,
-    "line": 11,
-    "func": "queue_demo",
-    "stack_depth": 2,
-    "scalars": {
-     "front": 10
-    },
-    "structures": {
-     "q": {
-      "kind": "queue",
-      "layout_hint": null,
-      "values": [
-       5,
-       -17406891
-      ]
-     }
-    },
-    "args": {},
-    "call_stack": [
-     {
-      "func": "main",
-      "line": 14,
-      "args": {},
-      "frame_id": 2,
-      "level": 1
-     },
-     {
-      "func": "queue_demo",
-      "line": 11,
-      "args": {},
-      "frame_id": 1,
-      "level": 0
-     }
-    ],
-    "event": "line",
-    "frame_id": 2
-   },
-   {
-    "i": 13,
     "line": 14,
     "func": "main",
     "stack_depth": 1,
@@ -597,10 +521,11 @@
      }
     ],
     "event": "return",
-    "frame_id": 1
+    "frame_id": 1,
+    "return_value": 10
    },
    {
-    "i": 14,
+    "i": 12,
     "line": 15,
     "func": "main",
     "stack_depth": 1,

@@ -13,6 +13,7 @@ from typing import Any
 
 from pygdbmi.gdbcontroller import GdbController
 
+from engine.parser import list_functions, parse_cpp
 from engine.trace import (
     FrameInfo,
     GraphEdge,
@@ -421,7 +422,9 @@ class _Session:
             return None
         return token
 
-    def _walk_graph(self, root_expr: str, type_str: str, layout_hint: str | None) -> Structure:
+    def _walk_graph(
+        self, name: str, root_expr: str, type_str: str, layout_hint: str | None, by_value: bool = False
+    ) -> Structure:
         nodes: list[GraphNode] = []
         edges: list[GraphEdge] = []
         seen: set[str] = set()
@@ -457,10 +460,10 @@ class _Session:
             nodes.append(GraphNode(addr=addr, fields=field_vals))
             return addr
 
-        kind = "tree" if (layout_hint == "tree" or "tree" in (self.watch_as.get(root_expr) or "")) else "graph"
+        kind = "tree" if (layout_hint == "tree" or "tree" in (self.watch_as.get(name) or "")) else "graph"
         if layout_hint in {"tree", "graph", "list"}:
             kind = "tree" if layout_hint == "tree" else "graph"
-        walk_ptr(root_expr, type_str)
+        root = walk_ptr(root_expr, type_str)
         # Auto-detect tree: acyclic and ≤1 parent.
         if layout_hint is None and nodes:
             parents: dict[str, int] = {n.addr: 0 for n in nodes}
@@ -497,7 +500,9 @@ class _Session:
             layout_hint=layout_hint,
             nodes=nodes,
             edges=edges,
-            watch_as=self.watch_as.get(root_expr),
+            watch_as=self.watch_as.get(name),
+            root=root,
+            by_value=by_value,
         )
 
     def _linear_values(self, name: str, type_str: str, kind: str) -> list[Any]:
@@ -582,7 +587,7 @@ class _Session:
                     pointee = re.sub(r"\s*\*+\s*$", "", type_str).strip()
                     fields = self._ptype_fields(pointee) if "*" in type_str else []
                     if fields or kind in {"tree", "graph"}:
-                        structures[name] = self._walk_graph(name, type_str, hint)
+                        structures[name] = self._walk_graph(name, name, type_str, hint)
                     else:
                         addr = self._addr(name)
                         if addr and not self._readable(addr):
@@ -595,7 +600,12 @@ class _Session:
                             scalars[name] = addr or _coerce_scalar(value if isinstance(value, str) else None)
             elif "*" in type_str and "char" not in type_str:
                 # struct by pointer without classified kind
-                structures[name] = self._walk_graph(name, type_str, None)
+                structures[name] = self._walk_graph(name, name, type_str, None)
+            elif value is None and "std::" not in type_str and self._ptype_fields(type_str):
+                # struct by value (--simple-values omits composites): a node at &name, so
+                # pointers to it from other variables land on the same node.
+                hint = watch if watch in {"tree", "graph", "list"} else None
+                structures[name] = self._walk_graph(name, f"&{name}", f"{type_str} *", hint, by_value=True)
             else:
                 coerced = _coerce_scalar(value if isinstance(value, str) else _eval(self.gdb, name))
                 if isinstance(coerced, list) and len(coerced) > 1:
@@ -650,7 +660,9 @@ class _Session:
             except (TypeError, ValueError):
                 fline = 0
             level = int(fr.get("level") or i)
-            frame_id = self._frame_ids[level] if level < len(self._frame_ids) else 0
+            # GDB level 0 is the innermost frame; _frame_ids is indexed from the outermost.
+            outer = depth - 1 - level
+            frame_id = self._frame_ids[outer] if 0 <= outer < len(self._frame_ids) else 0
             call_stack.append(
                 FrameInfo(
                     func=str(fr.get("func") or "?"),
@@ -715,6 +727,10 @@ def run_trace(
 
             session = _Session(gdb, source_path, watch_as, cap, step_into)
             session.leave_foreign()
+            # At -O0 every function ends on its closing-brace line; `finish` there instead of
+            # `step` so the return lands in the caller (with the value) before any sibling call.
+            closing_lines = {f.end_line for f in list_functions(parse_cpp(source), source)}
+            pending_return: Any = None
             steps: list[TraceStep] = []
             hit_cap = False
             last_key: tuple[Any, ...] | None = None
@@ -732,10 +748,18 @@ def run_trace(
                     else:
                         repeats = 0
                         last_key = key
+                    if snap.event == "return" and pending_return is not None:
+                        snap.return_value = pending_return
                     steps.append(snap)
+                pending_return = None
 
-                cmd = "-exec-step" if step_into else "-exec-next"
-                _, stop = _wait_stop(gdb, _write(gdb, cmd, timeout=1.5), timeout=3.0)
+                if snap is not None and snap.line in closing_lines and snap.stack_depth > 1:
+                    _, stop = _wait_stop(gdb, _write(gdb, "-exec-finish", timeout=1.5), timeout=3.0)
+                    if stop and "return-value" in stop and session.in_user(_frame_from_payload(stop)):
+                        pending_return = _coerce_scalar(str(stop["return-value"]))
+                else:
+                    cmd = "-exec-step" if step_into else "-exec-next"
+                    _, stop = _wait_stop(gdb, _write(gdb, cmd, timeout=1.5), timeout=3.0)
                 if stop is None:
                     _write(gdb, "-exec-interrupt")
                     _, stop = _wait_stop(gdb, timeout=2.0)

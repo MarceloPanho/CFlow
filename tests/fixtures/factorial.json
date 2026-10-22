@@ -99,7 +99,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
@@ -108,7 +108,7 @@
       "args": {
        "n": 4
       },
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -132,7 +132,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
@@ -141,7 +141,7 @@
       "args": {
        "n": 4
       },
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -165,7 +165,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 3,
+      "frame_id": 1,
       "level": 2
      },
      {
@@ -181,7 +181,7 @@
       "args": {
        "n": 3
       },
-      "frame_id": 1,
+      "frame_id": 3,
       "level": 0
      }
     ],
@@ -205,7 +205,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 3,
+      "frame_id": 1,
       "level": 2
      },
      {
@@ -221,7 +221,7 @@
       "args": {
        "n": 3
       },
-      "frame_id": 1,
+      "frame_id": 3,
       "level": 0
      }
     ],
@@ -245,21 +245,21 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 1,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 3,
+      "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 3,
       "level": 1
      },
      {
@@ -268,7 +268,7 @@
       "args": {
        "n": 2
       },
-      "frame_id": 1,
+      "frame_id": 4,
       "level": 0
      }
     ],
@@ -292,21 +292,21 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 1,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 3,
+      "frame_id": 2,
       "level": 2
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 3,
       "level": 1
      },
      {
@@ -315,7 +315,7 @@
       "args": {
        "n": 2
       },
-      "frame_id": 1,
+      "frame_id": 4,
       "level": 0
      }
     ],
@@ -339,14 +339,14 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 5,
+      "frame_id": 1,
       "level": 4
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 2,
       "level": 3
      },
      {
@@ -360,7 +360,7 @@
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 4,
       "level": 1
      },
      {
@@ -369,7 +369,7 @@
       "args": {
        "n": 1
       },
-      "frame_id": 1,
+      "frame_id": 5,
       "level": 0
      }
     ],
@@ -393,14 +393,14 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 5,
+      "frame_id": 1,
       "level": 4
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 2,
       "level": 3
      },
      {
@@ -414,7 +414,7 @@
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 4,
       "level": 1
      },
      {
@@ -423,7 +423,7 @@
       "args": {
        "n": 1
       },
-      "frame_id": 1,
+      "frame_id": 5,
       "level": 0
      }
     ],
@@ -447,14 +447,14 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 5,
+      "frame_id": 1,
       "level": 4
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 2,
       "level": 3
      },
      {
@@ -468,7 +468,7 @@
       "func": "factorial",
       "line": 5,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 4,
       "level": 1
      },
      {
@@ -477,7 +477,7 @@
       "args": {
        "n": 1
       },
-      "frame_id": 1,
+      "frame_id": 5,
       "level": 0
      }
     ],
@@ -486,6 +486,54 @@
    },
    {
     "i": 10,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 4,
+    "scalars": {
+     "n": 2
+    },
+    "structures": {},
+    "args": {
+     "n": 2
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
+      "level": 3
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 2,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
+      "frame_id": 3,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {
+       "n": 2
+      },
+      "frame_id": 4,
+      "level": 0
+     }
+    ],
+    "event": "return",
+    "frame_id": 4,
+    "return_value": 1
+   },
+   {
+    "i": 11,
     "line": 6,
     "func": "factorial",
     "stack_depth": 4,
@@ -501,14 +549,54 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 4,
+      "frame_id": 1,
       "level": 3
      },
      {
       "func": "factorial",
       "line": 5,
       "args": {},
+      "frame_id": 2,
+      "level": 2
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {},
       "frame_id": 3,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 6,
+      "args": {
+       "n": 2
+      },
+      "frame_id": 4,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 4
+   },
+   {
+    "i": 12,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 3,
+    "scalars": {
+     "n": 3
+    },
+    "structures": {},
+    "args": {
+     "n": 3
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
+      "frame_id": 1,
       "level": 2
      },
      {
@@ -520,19 +608,20 @@
      },
      {
       "func": "factorial",
-      "line": 6,
+      "line": 5,
       "args": {
-       "n": 2
+       "n": 3
       },
-      "frame_id": 1,
+      "frame_id": 3,
       "level": 0
      }
     ],
     "event": "return",
-    "frame_id": 4
+    "frame_id": 3,
+    "return_value": 2
    },
    {
-    "i": 11,
+    "i": 13,
     "line": 6,
     "func": "factorial",
     "stack_depth": 3,
@@ -548,7 +637,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 3,
+      "frame_id": 1,
       "level": 2
      },
      {
@@ -564,15 +653,49 @@
       "args": {
        "n": 3
       },
+      "frame_id": 3,
+      "level": 0
+     }
+    ],
+    "event": "line",
+    "frame_id": 3
+   },
+   {
+    "i": 14,
+    "line": 5,
+    "func": "factorial",
+    "stack_depth": 2,
+    "scalars": {
+     "n": 4
+    },
+    "structures": {},
+    "args": {
+     "n": 4
+    },
+    "call_stack": [
+     {
+      "func": "main",
+      "line": 9,
+      "args": {},
       "frame_id": 1,
+      "level": 1
+     },
+     {
+      "func": "factorial",
+      "line": 5,
+      "args": {
+       "n": 4
+      },
+      "frame_id": 2,
       "level": 0
      }
     ],
     "event": "return",
-    "frame_id": 3
+    "frame_id": 2,
+    "return_value": 6
    },
    {
-    "i": 12,
+    "i": 15,
     "line": 6,
     "func": "factorial",
     "stack_depth": 2,
@@ -588,7 +711,7 @@
       "func": "main",
       "line": 9,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
@@ -597,15 +720,15 @@
       "args": {
        "n": 4
       },
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
-    "event": "return",
+    "event": "line",
     "frame_id": 2
    },
    {
-    "i": 13,
+    "i": 16,
     "line": 9,
     "func": "main",
     "stack_depth": 1,
@@ -622,10 +745,11 @@
      }
     ],
     "event": "return",
-    "frame_id": 1
+    "frame_id": 1,
+    "return_value": 24
    },
    {
-    "i": 14,
+    "i": 17,
     "line": 10,
     "func": "main",
     "stack_depth": 1,

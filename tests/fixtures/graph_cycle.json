@@ -143,34 +143,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 49152",
-       "next = 0x7fffffffd488"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7ffff7c2a601",
+        "fields": {
+         "val": -1729575031
+        }
+       },
+       {
+        "addr": "0x7fffffffd4a0",
+        "fields": {
+         "val": -10928
+        }
+       },
+       {
+        "addr": "0x7fffffffd488",
+        "fields": {
+         "val": 0
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 49152
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7ffff7c2a601",
+        "field": "next",
+        "to": "invalid"
+       },
+       {
+        "from": "0x7fffffffd4a0",
+        "field": "next",
+        "to": "0x7ffff7c2a601"
+       },
+       {
+        "from": "0x7fffffffd488",
+        "field": "next",
+        "to": "0x7fffffffd4a0"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd488"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 6",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 6
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 0",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 0
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -179,14 +252,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 6,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -203,34 +276,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 49152",
-       "next = 0x7fffffffd488"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7ffff7c2a601",
+        "fields": {
+         "val": -1729575031
+        }
+       },
+       {
+        "addr": "0x7fffffffd4a0",
+        "fields": {
+         "val": -10928
+        }
+       },
+       {
+        "addr": "0x7fffffffd488",
+        "fields": {
+         "val": -233066496
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 49152
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7ffff7c2a601",
+        "field": "next",
+        "to": "invalid"
+       },
+       {
+        "from": "0x7fffffffd4a0",
+        "field": "next",
+        "to": "0x7ffff7c2a601"
+       },
+       {
+        "from": "0x7fffffffd488",
+        "field": "next",
+        "to": "0x7fffffffd4a0"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd488"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 6",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 6
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 0",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 0
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -239,14 +385,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 10,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -263,34 +409,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd488"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7ffff7c2a601",
+        "fields": {
+         "val": -1729575031
+        }
+       },
+       {
+        "addr": "0x7fffffffd4a0",
+        "fields": {
+         "val": -10928
+        }
+       },
+       {
+        "addr": "0x7fffffffd488",
+        "fields": {
+         "val": -233066496
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7ffff7c2a601",
+        "field": "next",
+        "to": "invalid"
+       },
+       {
+        "from": "0x7fffffffd4a0",
+        "field": "next",
+        "to": "0x7ffff7c2a601"
+       },
+       {
+        "from": "0x7fffffffd488",
+        "field": "next",
+        "to": "0x7fffffffd4a0"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd488"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 6",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 6
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 0",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 0
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -299,14 +518,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 11,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -323,34 +542,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd488"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7ffff7c2a601",
+        "fields": {
+         "val": -1729575031
+        }
+       },
+       {
+        "addr": "0x7fffffffd4a0",
+        "fields": {
+         "val": -10928
+        }
+       },
+       {
+        "addr": "0x7fffffffd488",
+        "fields": {
+         "val": -233066496
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7ffff7c2a601",
+        "field": "next",
+        "to": "invalid"
+       },
+       {
+        "from": "0x7fffffffd4a0",
+        "field": "next",
+        "to": "0x7ffff7c2a601"
+       },
+       {
+        "from": "0x7fffffffd488",
+        "field": "next",
+        "to": "0x7fffffffd4a0"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd488"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 0",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 0
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -359,14 +651,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 12,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -383,34 +675,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd488"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7ffff7c2a601",
+        "fields": {
+         "val": -1729575031
+        }
+       },
+       {
+        "addr": "0x7fffffffd4a0",
+        "fields": {
+         "val": -10928
+        }
+       },
+       {
+        "addr": "0x7fffffffd488",
+        "fields": {
+         "val": -233066496
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7ffff7c2a601",
+        "field": "next",
+        "to": "invalid"
+       },
+       {
+        "from": "0x7fffffffd4a0",
+        "field": "next",
+        "to": "0x7ffff7c2a601"
+       },
+       {
+        "from": "0x7fffffffd488",
+        "field": "next",
+        "to": "0x7fffffffd4a0"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd488"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -419,14 +784,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 13,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -443,34 +808,85 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -479,14 +895,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 14,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -503,34 +919,107 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "tree",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x0"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": null
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -539,14 +1028,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 15,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -563,34 +1052,140 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
       "layout_hint": null,
       "nodes": [],
-      "edges": []
+      "edges": [],
+      "root": "invalid"
      }
     },
     "args": {},
@@ -599,14 +1194,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 16,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -623,28 +1218,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -685,7 +1385,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -694,14 +1395,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 17,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -719,28 +1420,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -781,7 +1587,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -790,14 +1597,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 18,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -815,28 +1622,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -877,7 +1789,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -886,14 +1799,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 19,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -911,28 +1824,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -973,7 +1991,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -982,14 +2001,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 20,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1007,28 +2026,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1069,7 +2193,8 @@
         "field": "next",
         "to": "0x7fffffffd470"
        }
-      ]
+      ],
+      "root": "0x7fffffffd460"
      }
     },
     "args": {},
@@ -1078,14 +2203,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 18,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1103,28 +2228,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1165,7 +2395,8 @@
         "field": "next",
         "to": "0x7fffffffd470"
        }
-      ]
+      ],
+      "root": "0x7fffffffd460"
      }
     },
     "args": {},
@@ -1174,14 +2405,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 19,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1199,28 +2430,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1261,7 +2597,8 @@
         "field": "next",
         "to": "0x7fffffffd470"
        }
-      ]
+      ],
+      "root": "0x7fffffffd460"
      }
     },
     "args": {},
@@ -1270,14 +2607,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 20,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1295,28 +2632,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1357,7 +2799,8 @@
         "field": "next",
         "to": "0x7fffffffd450"
        }
-      ]
+      ],
+      "root": "0x7fffffffd470"
      }
     },
     "args": {},
@@ -1366,14 +2809,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 18,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1391,28 +2834,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1453,7 +3001,8 @@
         "field": "next",
         "to": "0x7fffffffd450"
        }
-      ]
+      ],
+      "root": "0x7fffffffd470"
      }
     },
     "args": {},
@@ -1462,14 +3011,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 19,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1487,28 +3036,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1549,7 +3203,8 @@
         "field": "next",
         "to": "0x7fffffffd450"
        }
-      ]
+      ],
+      "root": "0x7fffffffd470"
      }
     },
     "args": {},
@@ -1558,14 +3213,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 20,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1583,28 +3238,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1645,7 +3405,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -1654,14 +3415,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 18,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1678,28 +3439,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1740,7 +3606,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -1749,14 +3616,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 22,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1773,28 +3640,133 @@
     },
     "structures": {
      "a": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 1",
-       "next = 0x7fffffffd460"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       }
+      ],
+      "root": "0x7fffffffd450",
+      "by_value": true
      },
      "b": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 2",
-       "next = 0x7fffffffd470"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       },
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       },
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       }
+      ],
+      "root": "0x7fffffffd460",
+      "by_value": true
      },
      "c": {
-      "kind": "array",
+      "kind": "graph",
       "layout_hint": null,
-      "values": [
-       "val = 3",
-       "next = 0x7fffffffd450"
-      ]
+      "nodes": [
+       {
+        "addr": "0x7fffffffd460",
+        "fields": {
+         "val": 2
+        }
+       },
+       {
+        "addr": "0x7fffffffd450",
+        "fields": {
+         "val": 1
+        }
+       },
+       {
+        "addr": "0x7fffffffd470",
+        "fields": {
+         "val": 3
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "0x7fffffffd460",
+        "field": "next",
+        "to": "0x7fffffffd470"
+       },
+       {
+        "from": "0x7fffffffd450",
+        "field": "next",
+        "to": "0x7fffffffd460"
+       },
+       {
+        "from": "0x7fffffffd470",
+        "field": "next",
+        "to": "0x7fffffffd450"
+       }
+      ],
+      "root": "0x7fffffffd470",
+      "by_value": true
      },
      "p": {
       "kind": "graph",
@@ -1835,7 +3807,8 @@
         "field": "next",
         "to": "0x7fffffffd460"
        }
-      ]
+      ],
+      "root": "0x7fffffffd450"
      }
     },
     "args": {},
@@ -1844,14 +3817,14 @@
       "func": "main",
       "line": 26,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "cycle_sum",
       "line": 23,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -1876,7 +3849,8 @@
      }
     ],
     "event": "return",
-    "frame_id": 1
+    "frame_id": 1,
+    "return_value": 6
    },
    {
     "i": 23,

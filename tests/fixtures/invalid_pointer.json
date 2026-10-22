@@ -89,14 +89,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 1,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -119,14 +119,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 3,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -149,14 +149,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 4,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -179,14 +179,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 5,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -209,14 +209,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 8,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -239,14 +239,14 @@
       "func": "main",
       "line": 12,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "wild",
       "line": 9,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -271,7 +271,8 @@
      }
     ],
     "event": "return",
-    "frame_id": 1
+    "frame_id": 1,
+    "return_value": 1
    },
    {
     "i": 8,

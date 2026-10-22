@@ -161,14 +161,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 3,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -196,14 +196,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 4,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -233,14 +233,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 5,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -270,14 +270,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 6,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -308,14 +308,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 7,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -347,14 +347,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 8,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -386,14 +386,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 8,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -425,14 +425,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 9,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -463,14 +463,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 10,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -500,14 +500,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 11,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -537,14 +537,14 @@
       "func": "main",
       "line": 15,
       "args": {},
-      "frame_id": 2,
+      "frame_id": 1,
       "level": 1
      },
      {
       "func": "stack_demo",
       "line": 12,
       "args": {},
-      "frame_id": 1,
+      "frame_id": 2,
       "level": 0
      }
     ],
@@ -553,80 +553,6 @@
    },
    {
     "i": 12,
-    "line": 11,
-    "func": "stack_demo",
-    "stack_depth": 2,
-    "scalars": {
-     "top": 3
-    },
-    "structures": {
-     "st": {
-      "kind": "stack",
-      "layout_hint": null,
-      "values": [
-       1431655788
-      ]
-     }
-    },
-    "args": {},
-    "call_stack": [
-     {
-      "func": "main",
-      "line": 15,
-      "args": {},
-      "frame_id": 2,
-      "level": 1
-     },
-     {
-      "func": "stack_demo",
-      "line": 11,
-      "args": {},
-      "frame_id": 1,
-      "level": 0
-     }
-    ],
-    "event": "line",
-    "frame_id": 2
-   },
-   {
-    "i": 13,
-    "line": 12,
-    "func": "stack_demo",
-    "stack_depth": 2,
-    "scalars": {
-     "top": 3
-    },
-    "structures": {
-     "st": {
-      "kind": "stack",
-      "layout_hint": null,
-      "values": [
-       1431655788
-      ]
-     }
-    },
-    "args": {},
-    "call_stack": [
-     {
-      "func": "main",
-      "line": 15,
-      "args": {},
-      "frame_id": 2,
-      "level": 1
-     },
-     {
-      "func": "stack_demo",
-      "line": 12,
-      "args": {},
-      "frame_id": 1,
-      "level": 0
-     }
-    ],
-    "event": "line",
-    "frame_id": 2
-   },
-   {
-    "i": 14,
     "line": 15,
     "func": "main",
     "stack_depth": 1,
@@ -643,10 +569,11 @@
      }
     ],
     "event": "return",
-    "frame_id": 1
+    "frame_id": 1,
+    "return_value": 3
    },
    {
-    "i": 15,
+    "i": 13,
     "line": 16,
     "func": "main",
     "stack_depth": 1,

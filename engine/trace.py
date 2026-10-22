@@ -60,6 +60,8 @@ class Structure:
     nodes: list[GraphNode] | None = None
     edges: list[GraphEdge] | None = None
     watch_as: str | None = None
+    root: str | None = None  # addr the variable reaches: its own (by_value) or the pointee
+    by_value: bool = False  # struct living in the variable itself, not behind a pointer
 
     def to_dict(self) -> dict[str, Any]:
         out: dict[str, Any] = {"kind": self.kind, "layout_hint": self.layout_hint}
@@ -70,6 +72,9 @@ class Structure:
         if self.kind in GRAPH_KINDS:
             out["nodes"] = [n.to_dict() for n in (self.nodes or [])]
             out["edges"] = [e.to_dict() for e in (self.edges or [])]
+            out["root"] = self.root
+            if self.by_value:
+                out["by_value"] = True
         return out
 
 
@@ -166,6 +171,8 @@ def structure_from_dict(data: dict[str, Any]) -> Structure:
         nodes=nodes,
         edges=edges,
         watch_as=data.get("watch_as"),
+        root=data.get("root"),
+        by_value=bool(data.get("by_value")),
     )
 
 
